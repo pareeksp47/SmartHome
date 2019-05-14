@@ -288,30 +288,36 @@ form .submit:hover {
 
 .add-modal-content {
 	background-color: #fefefe;
-	margin: 5% auto 15% 35%;
+	margin: 5% 5% 15% 30%;
 	padding-top: 30px;
 	border: 1px solid #888;
-	width: 30%;
+	width: 35%;
 	height: 60%;
 }
 
 .modal-title {
 	text-align: center;
 	font-size: 24px;
+	margin: 20px !important;
 }
 
 .add-btn {
 	margin-top: 20px;
 	background-color: rgb(1, 83, 143);
 	border: 0px;
+	width: 20%;
 	margin-left: 10%;
 	font-size: 1.3em;
+	position: absolute;
+	top: 60%;
+	right: 30%;
+	left: 33%;
 }
 
 .close {
 	color: black;
 	float: right;
-	font-size: 34px;
+	font-size: 40px !important;
 	font-weight: bold;
 	position: absolute;
 	top: 24%;
