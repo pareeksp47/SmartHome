@@ -62,9 +62,10 @@
      
 		     <div class="col-sm-12">
 				<div class="row">
-					 <div class="button col-xs-8">
-						<button class="login-btn" id="login">&nbsp;Login&nbsp;</button>
-						<button id="reset" class="reset-btn">&nbsp;Reset&nbsp;</button>
+					 <div class="button col-xs-6 loginbtn">
+						<button class="button"  id="login">&nbsp;Login&nbsp;</button>
+						<!-- <button id="reset" id="buttonone" class="reset-btn1">&nbsp;Reset&nbsp;</button> -->
+						<button id="reset-btn" class="button">&nbsp;Reset&nbsp;</button>
 					 </div>
 				 </div>
 				 

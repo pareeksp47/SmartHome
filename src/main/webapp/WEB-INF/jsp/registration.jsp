@@ -87,7 +87,7 @@
 		
 		     <div class="col-sm-12">
 		         <div  >
-				 <input class="btnsubmit btn-warning submit"  name="submit" type="submit" value=
+				 <input class="button"  name="submit" type="submit" value=
                             "Submit" onclick=validateFields()>
 							
 				 
