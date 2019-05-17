@@ -52,4 +52,18 @@ public class UserRepository {
 
     }
 
+	public User authenticate(String userName, String password)throws Exception {
+		List<User> result = jdbcTemplate.query(
+                "SELECT id, first_name,last_name, email, created_on, status, user_role,password FROM Users where email = ? and password = ? ",
+                new Object[] {userName,password},(rs, rowNum) -> new User(rs.getInt("id"),
+                        rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getDate("created_on")
+                        ,rs.getBoolean("status"), rs.getString("user_role"), rs.getString("password"))
+        );
+		
+		
+		
+		
+        return result.size() == 0 ? null : result.get(0) ;
+	}
+
 }

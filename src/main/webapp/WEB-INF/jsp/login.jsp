@@ -76,7 +76,7 @@
 		 
 
 
-<script src="../../js/profile/login.js">
+<script src="/smarthome/js/login.js">
 
 </script>
 	<jsp:include page="footer.jsp" />

@@ -103,5 +103,5 @@
 </div>
 <jsp:include page="footer.jsp" />
 </body>
-<script src="../../js/profile/registration.js"></script>
+<script src="/smarthome/js/registration.js"></script>
 </html>

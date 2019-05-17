@@ -5,6 +5,8 @@ package com.exchange.isep.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,34 @@ public class UserController {
 			result = mapper.writeValueAsString(users);
 		} catch (Exception e) {
 			System.out.println("Error :"+e);
+		}
+		return result;
+	}
+	
+	
+	@RequestMapping(value="/authenticate", method = RequestMethod.POST) 
+	public String authUser(HttpServletRequest request) {
+		
+		String result = "login";
+		try {
+			String userName = request.getParameter("username");
+			String password = request.getParameter("password");
+		
+			
+			User user = userRepository.authenticate(userName, password);
+			if(null != user) {
+				if(user.getUserRole().equals("Customer")) {
+					result = "userDashboard";
+				}else {
+					result = "adminDashboard";
+				}
+				
+				HttpSession session = request.getSession(true);
+				session.setAttribute("user", user);
+			}
+		} catch (Exception e) {
+			System.out.println("Error :"+e);
+			result= "error";
 		}
 		return result;
 	}
