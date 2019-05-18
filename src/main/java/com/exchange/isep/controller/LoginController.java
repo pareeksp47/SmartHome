@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exchange.isep.model.User;
 import com.exchange.isep.repository.UserRepository;
@@ -31,7 +32,8 @@ public class LoginController {
         return "login";
     }
 	
-	@RequestMapping(value="/authenticate", method = RequestMethod.POST) 
+	@RequestMapping(value="/authenticate", method = RequestMethod.POST)
+	@ResponseBody
 	public String authUser(HttpServletRequest request) {
 		
 		String result = "login";
