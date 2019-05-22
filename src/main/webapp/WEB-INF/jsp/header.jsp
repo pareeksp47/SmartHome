@@ -1,3 +1,4 @@
+<%@ page session="false" %>
 <link href="/smarthome/css/menu.css" rel="stylesheet" id="bootstrap-css">
 <div class="menu loggedout" >
 <div class="leftmenu">

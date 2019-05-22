@@ -44,7 +44,7 @@ public class LoginController {
 			
 			User user = userRepository.authenticate(userName, password);
 			if(null != user) {
-				if(user.getUserRole().equals("Customer")) {
+				if(null != user.getUserRole() && user.getUserRole().equalsIgnoreCase("Customer")) {
 					result = "userDashboard";
 				}else {
 					result = "adminDashboard";

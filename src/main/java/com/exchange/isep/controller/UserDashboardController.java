@@ -36,8 +36,18 @@ public class UserDashboardController {
 	private UserDashboardRepository userDashboardRepository;
 
 	@GetMapping({ "/userDashboard" })
-	public String userDB(Model model) {
-		return "userDashboard";
+	public String userDB(Model model, HttpServletRequest request) {
+		
+		String result = "userDashboard";
+		
+		    	HttpSession reqSession = request.getSession(false);
+		    
+		    	if(null == reqSession){
+		    		
+		    		result = "login";
+		    	}
+		 
+		return result;
 	}
 
 	@RequestMapping(value="/userData", method = RequestMethod.GET)
@@ -79,6 +89,7 @@ public class UserDashboardController {
 			
 		} catch (Exception e) {
 			System.out.println("Error : " + e);
+			result = "error";
 		}
 
 		return result;
