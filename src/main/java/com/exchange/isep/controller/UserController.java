@@ -46,6 +46,7 @@ public class UserController {
 		return result;
 	}
 
+
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public String authUser(HttpServletRequest request) {
 
@@ -71,5 +72,6 @@ public class UserController {
 		}
 		return result;
 	}
+
 
 }

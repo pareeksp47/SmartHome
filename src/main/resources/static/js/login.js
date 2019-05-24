@@ -53,3 +53,11 @@ $('#login').click(function() {
 			});    
 		}
   });
+
+$('#reset-btn').click(function(){
+	
+	$('#email').val("");
+	$('#password').val("");
+	
+	
+});
