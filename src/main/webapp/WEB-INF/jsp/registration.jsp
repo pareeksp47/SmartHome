@@ -21,9 +21,9 @@
      <header class="heading"> User Registration </header>
 	 <div class = "space"></div>
 	<!---Form starting----> 
-	<form method="post" name="" action="/smarthome/site/unauthorized/registration-ajax.php">
+	<form method="post" name="" action="saveUserDetails">
 	<div class="row ">
-	
+	 <label class="error hidden" id="error"></label>
 	 <!--- For Name---->
          <div class="col-sm-12">
              <div class="row">
@@ -87,8 +87,8 @@
 		
 		     <div class="col-sm-12">
 		         <div  >
-				 <input class="button"  name="submit" type="submit" value=
-                            "Submit" onclick=validateFields()>
+				 <input class="button"  id="submit" name="submit" type="submit" value=
+                            "Submit" >
 							
 				 
 		   </div>

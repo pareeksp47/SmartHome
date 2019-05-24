@@ -24,52 +24,50 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @RestController
 public class UserController {
-	
-	 @Autowired
-	  DataSource dataSource;
 
-	    @Autowired
-	    private UserRepository userRepository;
+	@Autowired
+	DataSource dataSource;
 
-	@RequestMapping(value="/users", method = RequestMethod.GET) 
+	@Autowired
+	private UserRepository userRepository;
+
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String allUsers() {
-		
+
 		String result = "";
 		try {
 			List<User> users = userRepository.findAll();
-			
+
 			ObjectMapper mapper = new ObjectMapper();
 			result = mapper.writeValueAsString(users);
 		} catch (Exception e) {
-			System.out.println("Error :"+e);
+			System.out.println("Error :" + e);
 		}
 		return result;
 	}
-	
-	
-	@RequestMapping(value="/authenticate", method = RequestMethod.POST) 
+
+	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public String authUser(HttpServletRequest request) {
-		
+
 		String result = "login";
 		try {
 			String userName = request.getParameter("username");
 			String password = request.getParameter("password");
-		
-			
+
 			User user = userRepository.authenticate(userName, password);
-			if(null != user) {
-				if(user.getUserRole().equals("Customer")) {
+			if (null != user) {
+				if (user.getUserRole().equals("Customer")) {
 					result = "userDashboard";
-				}else {
+				} else {
 					result = "adminDashboard";
 				}
-				
+
 				HttpSession session = request.getSession(true);
 				session.setAttribute("user", user);
 			}
 		} catch (Exception e) {
-			System.out.println("Error :"+e);
-			result= "error";
+			System.out.println("Error :" + e);
+			result = "error";
 		}
 		return result;
 	}

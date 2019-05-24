@@ -7,8 +7,13 @@
 
 
 <div class="rightmenu">
-<button id="buttonone" onclick="login()"> LOGIN </button>
-<button id="buttontwo" onclick="register()"> REGISTER </button>
+<form action="login" >
+	<button id="buttonone" > LOGIN </button>
+</form>
+<form action="register" >
+	<button id="buttontwo" > REGISTER </button>
+</form>
+
 
 </div>
 </div>
