@@ -1,3 +1,6 @@
+
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page session="false" %>
@@ -7,6 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/smarthome/css/style.css">
+<link href="/smarthome/css/register.css" rel="stylesheet" id="bootstrap-css">
+<script type="text/javascript" src="/smarthome/js/registration.js"></script>
 <script>
 function myFunction() {
 	   var input, filter, table, tr, td, i;
@@ -26,6 +31,9 @@ function myFunction() {
 	    } 
 	  }
 	}
+	
+	
+
 </script>
 </head>
 <body>
@@ -69,21 +77,22 @@ function myFunction() {
     </ul>
 </div>
 	<h2 style="text-align: center;margin-top: 50px;">Add Admin</h2>
-	<form method="post" action="create_admin.php">
-
+	<form method="post" action="saveAdminDetails">
+		<label class="error hidden" id="error"></label>
+		
 		<?php //echo display_error(); ?>
 
 		<div class="input-group">
-			<label>First Name</label>
-			<input type="text" name="first_name"  placeholder=""> 
+			 <label class="firstname">First Name </label>
+			<input type="text" name="fname" id="fname" placeholder="" class="form-control "> 
 		</div>
 		<div class="input-group">
 			<label>Last Name</label>
-			<input type="text" name="last_name" placeholder=""> 
+			<input type="text" name="lname" id="lname" placeholder=""> 
 		</div>
 		<div class="input-group">
 			<label>Email</label>
-			<input type="email" name="email" placeholder=""> 
+			<input type="email" name="email" id="email" placeholder=""> 
 		</div>
 		<!--<div class="input-group">
 			<label>User type</label>
@@ -95,18 +104,20 @@ function myFunction() {
 		</div>-->
 		<div class="input-group">
 			<label>Password</label>
-			<input type="password" placeholder="" name="password">
+			<input type="password" placeholder=""  id="password" name="password">
 		</div>
 		<div class="input-group">
 			<label>Confirm password</label>
-			<input type="password" placeholder="" name="con_pswd">
+			<input type="password" placeholder="" id="cpassword" name="cpassword">
 		</div>
 		<div class="input-group">
-			<button type="submit" class="btn" name="submit_btn"> Create admin</button>
+			<input type="submit" class="button" name="submit" id="submit" value=
+                            "Create Admin" > 
 		</div>
 	</form>
 	<div class="footer">
 	<!--<h5 style="text-align: center; font-family: Hei; ">User Admin - 2019 © DOMISEP all rights reserved! Powered By BIGTREE</h5>-->
 </div>
 </body>
+<script src="/smarthome/js/registration.js"></script>
 </html>

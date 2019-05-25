@@ -51,6 +51,13 @@ public class UserRepository {
                 user.getFirstName(), user.getLastName(), user.getEmail(),user.getPassword(),user.isStatus(),user.getUserRole(),user.getCreatedOn());
 
     }
+    
+    public void addAdmin(User user) {
+
+        jdbcTemplate.update("INSERT INTO users(first_name,last_name, email, password, status, user_role, created_on) VALUES (?,?,?,?,?,?,?)",
+                user.getFirstName(), user.getLastName(), user.getEmail(),user.getPassword(),user.isStatus(),user.getUserRole(),user.getCreatedOn());
+
+    }
 
 	public User authenticate(String userName, String password)throws Exception {
 		List<User> result = jdbcTemplate.query(

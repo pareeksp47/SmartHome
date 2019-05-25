@@ -7,7 +7,15 @@ $('#submit').click(function(event) {
 
 });
 
-function validateFields(event) {
+//$('#submit-admin').click(function(event) {
+//	var flag = validateFields();
+//	if (!flag) {
+//		event.preventDefault(event);
+//	}
+//
+//});
+
+validationCheck = function validateFields(event) {
 	if (!$('#fname').val()) {
 		setErrorMessage("Please enter first name");
 		return false;
