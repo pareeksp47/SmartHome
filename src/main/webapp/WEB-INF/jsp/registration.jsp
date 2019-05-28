@@ -9,7 +9,7 @@
 <title>Registration</title>
 
 <jsp:include page="basic.jsp" />
-<script src="/smarthome/js/profile/registration.js"></script>
+<script src="/smarthome/js/registration.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <link href="/smarthome/css/register.css" rel="stylesheet" id="bootstrap-css">
 </head>
@@ -53,7 +53,7 @@
 			     <div class="col-xs-4">
 		             <label class="mail" >Email </label></div>
 			     <div class="col-xs-8"	>	 
-			          <input type="email" name="email"  id="email"placeholder="Enter your email" class="form-control" >
+			          <input type="email" name="email"  id="email" placeholder="Enter your email" class="form-control" >
 		         </div>
 		     </div>
 		 </div>

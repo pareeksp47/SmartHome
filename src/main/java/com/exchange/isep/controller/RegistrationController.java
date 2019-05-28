@@ -44,7 +44,21 @@ public class RegistrationController {
         String userRole =  "Customer";
     	User user = new User(0, firstName, lastName, email, createdOn, status, userRole, password);
     	userRepository.addCustomer(user);
-        return "dashboard";
+        return "userDashboard";
+    }
+    
+    @RequestMapping(value = "/saveAdminDetails", method = RequestMethod.POST)
+    public String saveAdminRegDetails(HttpServletRequest  request) {
+    	String firstName = request.getParameter("fname");
+    	String lastName = request.getParameter("lname");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        Date createdOn = new Date();
+        boolean status = true;
+        String userRole =  "Admin";
+    	User user = new User(0, firstName, lastName, email, createdOn, status, userRole, password);
+    	userRepository.addAdmin(user);
+        return "adminDashboard";
     }
     
 

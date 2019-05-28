@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page session="false" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,18 +45,8 @@ function myFunction() {
         <li><a href="#">Privacy&Terms</a></li>
         <li><img src="images\boss.png" style="margin:0px 0px 0px 280px;"></li>
         <div style="margin: 2px 2px; margin-top:-15px;">
-           <!--   <?php  //if (isset($_SESSION['first_name'])) : 
-			
-                $email=$_SESSION['email'];
-
-                $sqlu ="SELECT * FROM users WHERE email='$email'";
-                $q_run_user = mysqli_query($db,$sqlu);
-                $user = mysqli_fetch_array($q_run_user);
-				//$email=$_SESSION['email'];
-                
-			
-			?> -->
-                <strong style="font-size: large;">Sivakumar<!-- <?php echo $user['first_name'];//echo $_SESSION['first_name']; ?> --></strong>
+        
+                <strong style="font-size: large;">Sivakumar<!-- > --></strong>
                 <small>
                     <i  style="color:#888;margin-right: 1px;"></i>&nbsp;
                     <button class="logout_btn"><a href="../../index.php?logout='1'" style="text-decoration: none;">Logout</a></button>
@@ -87,11 +78,33 @@ function myFunction() {
 <!-- when user manipulate database show messages here -->
 	
 <!--start: pagination script -->
+<%@page import="java.sql.DriverManager"%>
+			<%@page import="java.sql.ResultSet"%>
+			<%@page import="java.sql.Statement"%>
+			<%@page import="java.sql.Connection"%>
 
+			<%
+			
+			String id = request.getParameter("userId");
+			String driverName = "com.mysql.jdbc.Driver";
+			String connectionUrl = "jdbc:mysql://localhost:3306/smarthome";
+			//String dbName = "bigtree";
+			String userId = "root";
+			String password = "France@1234";
+
+			try {
+			//out.println("Inside database.");
+			Class.forName(driverName);
+			} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			}
+
+			Connection connection = null;
+			Statement statement = null;
+			ResultSet resultSet = null;
+			%>
 
 <!--end: pagination script -->
-
-<?php $results = mysqli_query($db, "SELECT * FROM users order by id desc"); ?>
 
 <table id="myTable"> 
     <tr class="header">   
@@ -100,28 +113,54 @@ function myFunction() {
       <th>last_name</th>
       <th>Email</th>
       <th>Type</th>
-      <th colspan="5">Action</th>
+<th colspan="5">Action</th> 
     </tr>
+<%
+			
+			connection = DriverManager.getConnection(connectionUrl, userId, password);
+			statement = connection.createStatement();
+			// sql query to retrieve values from the secified table.
+			String QueryString = "SELECT * FROM users order by ID";
+			resultSet = statement.executeQuery(QueryString);
+int i=0;
+while (resultSet.next()) { 
+%>
 
+<tr>
+		<td><%=resultSet.getInt(1) %></td>
+		<td><%=resultSet.getString(3) %></td>
+		<td><%=resultSet.getString(2) %></td>
+		<td><%=resultSet.getString(4) %></td>
+		<td><%=resultSet.getString(7) %></td>
+<!-- 		<td><a href="" class="edit_btn">Edit</a></td> -->
+		<td><a href="delete.jsp?id=<%=resultSet.getString("id") %>" class="del_btn">Delete</a></td>
+
+</tr>
+<% 
+}
+connection.close();
+%> 
+
+		
 	
-	<tr>
-		<td>1</td>
-		<td>Siva</td>
-		<td>S</td>
-		<td>siva@gmail.com</td>
-		<td>Admin</td>
-		<td><a href="edit-admin-profile.php?edit=<?php echo $row['id']; ?>" class="edit_btn">Edit</a></td>
-		<td><a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td>Tom</td>
-		<td>Holland</td>
-		<td>tom@gmail.com</td>
-		<td>User</td>
-		<td><a href="edit-admin-profile.php?edit=<?php echo $row['id']; ?>" class="edit_btn">Edit</a></td>
-		<td><a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td>
-	</tr>
+<!-- 	<tr> -->
+<!-- 		<td>1</td> -->
+<!-- 		<td>Siva</td> -->
+<!-- 		<td>S</td> -->
+<!-- 		<td>siva@gmail.com</td> -->
+<!-- 		<td>Admin</td> -->
+<%-- 		<td><a href="edit-admin-profile.php?edit=<?php echo $row['id']; ?>" class="edit_btn">Edit</a></td> --%>
+<%-- 		<td><a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>2</td> -->
+<!-- 		<td>Tom</td> -->
+<!-- 		<td>Holland</td> -->
+<!-- 		<td>tom@gmail.com</td> -->
+<!-- 		<td>User</td> -->
+<%-- 		<td><a href="edit-admin-profile.php?edit=<?php echo $row['id']; ?>" class="edit_btn">Edit</a></td> --%>
+<%-- 		<td><a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td> --%>
+<!-- 	</tr> -->
 
 
 <!--start: pagination -->

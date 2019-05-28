@@ -110,10 +110,10 @@ function myFunction() {
 		<label>Email</label>
 		<input type="text" name="email" value="sivak5692@gmail.com">
 	</div>
-	<div class="input-group">
-		<label>UserType</label>
-		<input type="text" name="type" value="User">
-	</div>
+<!-- 	<div class="input-group"> -->
+<!-- 		<label>UserType</label> -->
+<!-- 		<input type="text" name="type" value="User"> -->
+<!-- 	</div> -->
 	<!-- <div class="input-group">
 			<label>User type</label>
 			<select name="user_type" id="user_type" >	
