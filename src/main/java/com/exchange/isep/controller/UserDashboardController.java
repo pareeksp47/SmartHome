@@ -52,8 +52,7 @@ public class UserDashboardController {
 
 	@RequestMapping(value="/userData", method = RequestMethod.GET)
 	@ResponseBody
-	public String userDashboardData(@RequestParam(value = "id") String id,
-			HttpServletRequest request) {
+	public String userDashboardData(HttpServletRequest request) {
 
 		String result = "";
 		try {
@@ -80,9 +79,9 @@ public class UserDashboardController {
 					DashboardDetails details = new DashboardDetails();
 					details.apartments = apartments;
 					result = mapper.writeValueAsString(details);
-				}else {
-					result = "error";
-				}
+			
+			  }else { result = "error"; }
+			 
 			}else {
 				result = "login";
 			}
@@ -94,6 +93,106 @@ public class UserDashboardController {
 
 		return result;
 	}
+	
+	
+	
+	  public String saveApartment(@RequestParam(value="name") String name,
+			  					  @RequestParam(value="houseName") String houseName,
+			  					  @RequestParam (value="street") String street,
+			  					  @RequestParam (value="city") String city,
+			  					  @RequestParam (value="country") String country,
+			  					  @RequestParam (value="zipCode") String zipCode,
+			  					  HttpServletRequest request) {
+		  
+		  String result = "";
+		  
+		  try {
+			  	HttpSession session =  request.getSession();
+			  	if(null == session) {
+			  		result = "login";
+			  	}else {
+			  		User user = (User)session.getAttribute("user");
+			  		if(null == user) {
+			  			result = "login";
+			  		}else {
+			  			Apartment apt = new Apartment(0, name, user.getId(), houseName, street, city, country, zipCode);
+			  			userDashboardRepository.addApartment(apt);
+			  			result =  "success";
+			  		}
+			  	}
+			    
+			  	
+		  }catch(Exception e) {
+			  result = "error";
+			  System.out.println("Error :"+e);
+		  }
+	  
+		  return result;
+	  }
+	  
+	  public String addRoom(@RequestParam(value="name") String name,
+				  @RequestParam(value="apartmentId") int apartmentId,
+				  @RequestParam (value="roomType") String roomType,
+				  HttpServletRequest request) {
+
+				String result = "";
+				
+				try {
+				HttpSession session =  request.getSession();
+				if(null == session) {
+					result = "login";
+				}else {
+					User user = (User)session.getAttribute("user");
+					if(null == user) {
+						result = "login";
+					}else {
+						
+						Room room = new Room(0, name, apartmentId, roomType);
+						userDashboardRepository.addRoom(room);
+						result =  "success";
+					}
+				}
+				
+				
+				}catch(Exception e) {
+				result = "error";
+				System.out.println("Error :"+e);
+				}
+				
+				return result;
+	  }
+	  
+	  public String addSensor(@RequestParam(value="name") String name,
+			  @RequestParam(value="status") String status,
+			  HttpServletRequest request) {
+
+			String result = "";
+			
+			try {
+			HttpSession session =  request.getSession();
+			if(null == session) {
+				result = "login";
+			}else {
+				User user = (User)session.getAttribute("user");
+				if(null == user) {
+					result = "login";
+				}else {
+					
+					Sensor sensor = new Sensor(0, name, status);
+					userDashboardRepository.addSensor(sensor);
+					result =  "success";
+				}
+			}
+			
+			
+			}catch(Exception e) {
+			result = "error";
+			System.out.println("Error :"+e);
+			}
+			
+			return result;
+  }
+	 
 
 	/*
 	 * public String getApartment(String id) {

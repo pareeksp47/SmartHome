@@ -23,6 +23,12 @@ public class UserDashboardRepository {
 	@Autowired
     private JdbcTemplate jdbcTemplate;
 	
+	/**
+	 * 
+	 * @param roomId
+	 * @return
+	 * @throws Exception
+	 */
 	public List<Sensor> sensors(int roomId) throws Exception{
 		
 		List<Sensor> sensors = null;
@@ -36,7 +42,12 @@ public class UserDashboardRepository {
         return sensors;
 	}
 	
-	
+	/**
+	 * 
+	 * @param apartmentId
+	 * @return
+	 * @throws Exception
+	 */
 	public List<Room> rooms(int apartmentId) throws Exception{
 		
 		List<Room> rooms = null;
@@ -51,6 +62,12 @@ public class UserDashboardRepository {
        return rooms;
 	}
 	
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 * @throws Exception
+	 */
 	public List<Apartment> apartments(int userId) throws Exception{
 		
 		List<Apartment> apartments = null;
@@ -66,5 +83,42 @@ public class UserDashboardRepository {
 
        return apartments;
 	}
+	
+	
+	// Add new sensor
+    /**
+     * 
+     * @param sensor
+     */
+    public void addSensor(Sensor sensor) {
+
+        jdbcTemplate.update("INSERT INTO sensor(name, status) VALUES (?,?)",
+                sensor.getName(),sensor.getStatus());
+
+    }
+    
+ // Add new room
+    /**
+     * 
+     * @param room
+     */
+    public void addRoom(Room room) {
+
+        jdbcTemplate.update("INSERT INTO room(name, status) VALUES (?,?,?)",
+                room.getName(),room.getApartmentId(), room.getRoomType());
+
+    }
+    
+ // Add new apartment
+    /**
+     * 
+     * @param apartment
+     */
+    public void addApartment(Apartment apt) {
+
+        jdbcTemplate.update("INSERT INTO apartment(name, user_id, house_name, street, city, country, zipcode ) VALUES (?,?,?,?,?,?,?)",
+                apt.getName(),apt.getUserId(), apt.getApartmentRole(), apt.getHouseName(), apt.getStreet(), apt.getCity(), apt.getCountry(), apt.getZipCode());
+
+    }
 
 }
