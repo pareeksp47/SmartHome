@@ -139,11 +139,12 @@
 						<%} %>
 					</div>
 				</div>
-			</div>
-		</div>
-<%
+				<%
 }
 %>
+			</div>
+		</div>
+
 		<!-- Add Home modal  -->
 		<div id="addHomeModal" class="add-home-modal">
 			<form class="add-modal-content animate" action="" method="POST">
