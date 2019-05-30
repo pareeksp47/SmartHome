@@ -40,21 +40,28 @@ public class UserDashboardController {
 		
 		String result = "userDashboard";
 		
-		    	HttpSession reqSession = request.getSession(false);
-		    
-		    	if(null == reqSession){
-		    		
-		    		result = "login";
-		    	}
+				try {
+		
+			    	HttpSession reqSession = request.getSession(false);
+			    
+			    	if(null == reqSession || null == reqSession.getAttribute("user")){
+			    		
+			    		result = "login";
+			    	}else {
+			    		
+			    		reqSession.setAttribute("userDetails", userDashboardData(request));
+			    	}
+				}catch(Exception e) {
+					result = "error";
+				}
 		 
 		return result;
 	}
 
-	@RequestMapping(value="/userData", method = RequestMethod.GET)
-	@ResponseBody
-	public String userDashboardData(HttpServletRequest request) {
+	
+	public DashboardDetails userDashboardData(HttpServletRequest request) {
 
-		String result = "";
+		DashboardDetails result = null;
 		try {
 
 			HttpSession session = request.getSession(false);
@@ -75,20 +82,20 @@ public class UserDashboardController {
 						}
 					}
 					
-					ObjectMapper mapper = new ObjectMapper();
+				//	ObjectMapper mapper = new ObjectMapper();
 					DashboardDetails details = new DashboardDetails();
 					details.apartments = apartments;
-					result = mapper.writeValueAsString(details);
-			
-			  }else { result = "error"; }
+					//result = mapper.writeValueAsString(details);
+					result = details;
+			  }else { result = null; }
 			 
 			}else {
-				result = "login";
+				result = null;
 			}
 			
 		} catch (Exception e) {
 			System.out.println("Error : " + e);
-			result = "error";
+			result = null;
 		}
 
 		return result;

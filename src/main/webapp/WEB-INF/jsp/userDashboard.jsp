@@ -1,17 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page session="false"%>
 <%@ page import="com.exchange.isep.controller.*"%>
 
 <%@ page import="com.exchange.isep.model.User"%>
+<%@ page import="com.exchange.isep.model.DashboardDetails"%>
+<%@ page import="com.exchange.isep.model.Apartment"%>
+<%@ page import="com.exchange.isep.model.Room"%>
 <%@ page import="com.exchange.isep.repository.UserDashboardRepository"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ page session="false"%>
 
 <%
-	HttpSession reqSession = request.getSession(false);
-	User user = (User) reqSession.getAttribute("user");
+    	HttpSession reqSession = request.getSession(false);
+		User user  = null;
+		
+    	if(null == reqSession || null == reqSession.getAttribute("user")){
+    		
+    		RequestDispatcher view = request.getRequestDispatcher("login.jsp");
+			view.forward(request, response);
+			
+    	}else{
+    		user = (User) reqSession.getAttribute("user");
+    	}
+    
 %>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -29,7 +43,7 @@
 
 	<div class="side-nav-taskbar">
 		<div class="leftmenu">
-			<a href="/smarthome/" class="homeicon"> <img class="icon"
+			<a href="/smarthome/userDashboard" class="homeicon"> <img class="icon"
 				src="/smarthome/images/logo.png" /> <label class="domisep">Smart
 					Home </label>
 			</a>
@@ -38,7 +52,7 @@
 		<div class="profile_part">
 			<img src="images\avatar_image.png" alt="Avatar" class="avatar">
 			<h2
-				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';">Cristiana</h2>
+				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';"><% out.print(user.getFirstName()); %></h2>
 		</div>
 		<a href="#">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a>
 		<a href="#">FAQ</a>
@@ -46,13 +60,13 @@
 	<div class="main">
 		<!-- Home content code  -->
 		<div id="home-content" class="span10">
-			<ul class="breadcrumb">
+			<!-- <ul class="breadcrumb">
 				<li><a href="index.html" style="color: darkcyan;">Home Page</a><i
 					class="icon-angle-right"></i></li>
-			</ul>
+			</ul> -->
 			<div class="center-part">
-			<%System.out.println("user is : "+ user.getEmail()); %>
-				<h1 class="welcome-user">Hi <% out.print(user.getEmail()); %>, Welcome to your smart home!</h1>
+			
+				<h1 class="welcome-user">Hi <% out.print(user.getFirstName()); %>, Welcome to your smart home!</h1>
 				<div class="addHomeButton">
 					<a href="#fgj;jsdlg;sj"
 						onclick="document.getElementById('addHomeModal').style.display='block'">
@@ -63,12 +77,18 @@
 <!-- 					 <span> Add new home </span> -->
 					</a>
 				</div>
+<%
 
+		DashboardDetails details = (DashboardDetails)reqSession.getAttribute("userDetails");
+		
+		for(Apartment apt : details.apartments){
+%>
 
 				<div id="home-block" class="addHomeBlock custom_block"
 					style="display: block;">
 					<div class="thumbnail">
-						<div class="addHomeHeading">Home name</div>
+						<div class="addHomeHeading"><%=apt.getName() %></div>
+						<% for(Room room : apt.getRooms()){ %>
 						<div style="display: flex; flex-wrap: wrap;">
 							<div class="add-home-temp">
 								<div class="add-home-bck"
@@ -78,7 +98,7 @@
 									<img
 											class="add-room" src="images/living-room.png"
 											alt="Add home button">
-									</span>Salon
+									</span><%= room.getName() %>
 									</a>
 								</div>
 								';
@@ -116,11 +136,14 @@
 								</div>
 							</div>
 						</div>
+						<%} %>
 					</div>
 				</div>
 			</div>
 		</div>
-
+<%
+}
+%>
 		<!-- Add Home modal  -->
 		<div id="addHomeModal" class="add-home-modal">
 			<form class="add-modal-content animate" action="" method="POST">

@@ -12,8 +12,8 @@
 	</div>
 
 	<div class="rightmenu">
-		<a href="#">Login</a>
-		<a href="#">Register</a>
+		<a href="javascript:void(0)" onclick="login()">Login</a>
+		<a href="javascript:void(0)" onclick="register()">Register</a>
 <!-- 		<form action="login"> -->
 <!-- 			<button id="buttonone">LOGIN</button> -->
 <!-- 		</form> -->
