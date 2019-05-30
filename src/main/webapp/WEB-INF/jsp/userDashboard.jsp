@@ -38,7 +38,7 @@
 		<div class="profile_part">
 			<img src="images\avatar_image.png" alt="Avatar" class="avatar">
 			<h2
-				style="color: #10A976; text-align: center; font-size: 16px; 'Arbutus Slab';">Cristiana</h2>
+				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';">Cristiana</h2>
 		</div>
 		<a href="#">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a>
 		<a href="#">FAQ</a>
@@ -64,20 +64,7 @@
 					</a>
 				</div>
 
-<% 
-UserDashboardRepository userDashboard = (UserDashboardRepository) reqSession.getAttribute("apartmentList");
-if(userList !=null && userList.size() > 0){
-for(int i =0;i<userList.size();i++) { %>
-<tr> 
-       <td> <% out.println(userList.));%></td>
-       <td> <% out.println(userList.get(i).getFirstName());%></td> 
-       <td> <% out.println(userList.get(i).getLastName());%></td>
-       <td> <% out.println(userList.get(i).getEmail());%></td>
-       <td> <% out.println(userList.get(i).getUserRole());%></td>
-       <td><a href="" class="edit_btn">Edit</a></td>
-   </tr>
-<% } %> 
-<% } %> 
+
 				<div id="home-block" class="addHomeBlock custom_block"
 					style="display: block;">
 					<div class="thumbnail">
