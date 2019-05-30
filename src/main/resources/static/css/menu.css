@@ -1,131 +1,133 @@
-
-.domisep{
-color: #87cefa;
-font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+.domisep {
+	color: #87cefa;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-.smart{
-font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-color: #8C8C8C;
+.smart {
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+	color: #8C8C8C;
 }
 
-.menu{
-color: #fff;
-height: 100px;
-background-color: white;
-padding-top: 20px;
+.menu {
+	color: #fff;
+	height: 80px;
+	background-color: midnightblue !important;
+	padding-top: 20px;
 }
 
-.loggedout.menu{
+.loggedout.menu {
+	padding-top: 0px !important;
+}
 
-padding-top: 0px !important;
+.loggedout .leftmenu {
+    margin: 0px !important;
+    padding-top: 0px !important;
 }
 
 /*menu*/
-.leftmenu{
+.leftmenu {
 	width: 50%;
 	float: left;
-	margin:0;
+	margin: 0;
 	padding-top: 25px;
-	
 }
 
-.error{
+.error {
 	color: red;
-    padding: 0;
-	width: 100%
-	display: block !important;
+	padding: 0;
+	width: 100% display: block !important;
 	border: none;
 	background: none;
 	text-align: center;
 }
 
-
-.hidden{
-
+.hidden {
 	display: none !important;
 }
 
-.show{
-
+.show {
 	display: block !important;
 }
 
-
-.leftmenu h4{
-	padding-left:70px;
+.leftmenu h4 {
+	padding-left: 70px;
 	font-weight: bold;
 	color: black;
 	font-size: 22px;
 }
-a:hover{
-text-decoration: red !important;
+
+a:hover {
+	text-decoration: red !important;
 }
 
-
-#firstlist{
+#firstlist {
 	colour: orange;
 }
 
-.rightmenu{
-	 margin:20px;
-	 float:right;
- }
- 
- .loggedout .rightmenu{
+.rightmenu {
+	margin: 20px;
+	float: right;
+}
+
+.rightmenu a {
+	border-radius: 15px;
+	padding: 10px;
+	border: 1px solid white;
+	background: white;
+	font-weight: bold;
+	font-size: 17px;
+	margin: 5px;
+}
+
+.loggedout .rightmenu {
 	margin: 25px !important;
 }
 
-#buttonone{
-	 background-color: #87cefa;
-	 font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-	 color: black;
-	 border: none;
-	 font-size: 12px;
-	 font-weight: bold;
-	 text-transform: uppercase;
-	 box-shadow: 2px 2px 2px 2px black;
-	 line-height: 40px;
-	 width: 150px;
-	 margin-top: -11px;
-	 margin-right:20px;
-	
- }
- 
-  #buttonone:hover{
-	 color:white;
-
- }
- 
-
- 
- #buttontwo{
-	 background-color: #8C8C8C;
-	 color: white;
-	 font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-	 border: none;
-	 text-transform: uppercase;
-	 box-shadow: 2px 2px 2px 2px black;
-	 font-weight:bold;
-	 line-height: 40px;
-	 
-	 width: 150px;
-	 margin-left: 10px;
- }
-  #buttontwo:hover{
-	 color:black;
-	
- }
- 
- 
- .homeicon{
-color: black !important;
+#buttonone {
+	background-color: #87cefa;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+	color: black;
+	border: none;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: 2px 2px 2px 2px black;
+	line-height: 40px;
+	width: 150px;
+	margin-top: -11px;
+	margin-right: 20px;
 }
 
-.icon{
+#buttonone:hover {
+	color: white;
+}
 
-width: 30px;
-height: 30px;
+#buttontwo {
+	background-color: #8C8C8C;
+	color: white;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+	border: none;
+	text-transform: uppercase;
+	box-shadow: 2px 2px 2px 2px black;
+	font-weight: bold;
+	line-height: 40px;
+	width: 150px;
+	margin-left: 10px;
+}
 
+#buttontwo:hover {
+	color: black;
+}
 
+.homeicon {
+	color: black !important;
+}
+
+.icon {
+	width: 60px;
+	height: 60px;
 }

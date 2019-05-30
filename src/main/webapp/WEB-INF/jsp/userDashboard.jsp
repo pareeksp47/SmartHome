@@ -1,55 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="com.exchange.isep.controller.*"%>
+
+<%@ page import="com.exchange.isep.model.User"%>
+<%@ page import="com.exchange.isep.repository.UserDashboardRepository"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ page session="false" %>
+<%@ page session="false"%>
+
 <%
-    	HttpSession reqSession = request.getSession(false);
-    
-    	if(null == reqSession){
-    		
-    		RequestDispatcher view = request.getRequestDispatcher("login.jsp");
-			view.forward(request, response);
-    	}
-    
+	HttpSession reqSession = request.getSession(false);
+	User user = (User) reqSession.getAttribute("user");
 %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>UserDashboard</title>
+<link href='https://fonts.googleapis.com/css?family=Arbutus Slab'
+	rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Kaushan Script'
+	rel='stylesheet'>
 <link rel="stylesheet" type="text/css"
 	href="/smarthome/css/userDashboard.css">
 <jsp:include page="basic.jsp" />
 </head>
 <body>
-<jsp:include page="header.jsp" />
+	<%-- <jsp:include page="header.jsp" /> --%>
+
+	<div class="side-nav-taskbar">
+		<div class="leftmenu">
+			<a href="/smarthome/" class="homeicon"> <img class="icon"
+				src="/smarthome/images/logo.png" /> <label class="domisep">Smart
+					Home </label>
+			</a>
+
+		</div>
+		<div class="profile_part">
+			<img src="images\avatar_image.png" alt="Avatar" class="avatar">
+			<h2
+				style="color: #10A976; text-align: center; font-size: 16px; 'Arbutus Slab';">Cristiana</h2>
+		</div>
+		<a href="#">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a>
+		<a href="#">FAQ</a>
+	</div>
 	<div class="main">
 		<!-- Home content code  -->
 		<div id="home-content" class="span10">
 			<ul class="breadcrumb">
-				<li><a href="index.html">Home</a><i class="icon-angle-right"></i></li>
+				<li><a href="index.html" style="color: darkcyan;">Home Page</a><i
+					class="icon-angle-right"></i></li>
 			</ul>
 			<div class="center-part">
-				<h1 class="welcome-user">Hi  User, Welcome to your smart home!</h1>
+			<%System.out.println("user is : "+ user.getEmail()); %>
+				<h1 class="welcome-user">Hi <% out.print(user.getEmail()); %>, Welcome to your smart home!</h1>
 				<div class="addHomeButton">
 					<a href="#fgj;jsdlg;sj"
 						onclick="document.getElementById('addHomeModal').style.display='block'">
 						<span> <img class="add-home" src="images\add-home.png"
 							alt="Add home button"
 							style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: -15px;">
-					</span> <span> Add new home </span>
+					</span>
+<!-- 					 <span> Add new home </span> -->
 					</a>
 				</div>
 
-<!-- 				<div class="card"> -->
-<!-- 					<div class="card-header">Featured</div> -->
-<!-- 					<div class="card-body"> -->
-<!-- 						<h5 class="card-title">Special title treatment</h5> -->
-<!-- 						<p class="card-text">With supporting text below as a natural -->
-<!-- 							lead-in to additional content.</p> -->
-<!-- 						<a href="#" class="btn btn-primary">Go somewhere</a> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-
+<% 
+UserDashboardRepository userDashboard = (UserDashboardRepository) reqSession.getAttribute("apartmentList");
+if(userList !=null && userList.size() > 0){
+for(int i =0;i<userList.size();i++) { %>
+<tr> 
+       <td> <% out.println(userList.));%></td>
+       <td> <% out.println(userList.get(i).getFirstName());%></td> 
+       <td> <% out.println(userList.get(i).getLastName());%></td>
+       <td> <% out.println(userList.get(i).getEmail());%></td>
+       <td> <% out.println(userList.get(i).getUserRole());%></td>
+       <td><a href="" class="edit_btn">Edit</a></td>
+   </tr>
+<% } %> 
+<% } %> 
 				<div id="home-block" class="addHomeBlock custom_block"
 					style="display: block;">
 					<div class="thumbnail">
@@ -58,7 +86,9 @@
 							<div class="add-home-temp">
 								<div class="add-home-bck"
 									style="background: whitesmoke; border: 1px solid; display: flex; width: 130px;">
-									<a href="#fgj;jsdlg;sj"> <span> <img
+									<a href="#fgj;jsdlg;sj"> 
+									<span> 
+									<img
 											class="add-room" src="images/living-room.png"
 											alt="Add home button">
 									</span>Salon
@@ -225,6 +255,6 @@
 
 
 	</div>
-<jsp:include page="footer.jsp" />
+	<%-- <jsp:include page="footer.jsp" /> --%>
 </body>
 </html>

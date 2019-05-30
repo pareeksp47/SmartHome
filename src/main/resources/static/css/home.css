@@ -1,233 +1,247 @@
 body {
-
-margin:0px !important;
-padding:0px !important;
-display:none !important;
+	margin: 0px !important;
+	padding: 0px !important;
+	display: none !important;
 }
 
-.home{
-display: block !important;
-/*background-image:url("../images/h21.jpg");*/
-/*background-color:#F5F5F5;*/
-
-background-repeat: no-repeat;
-background-size:cover;
+.home {
+	display: block !important;
+	/*background-image:url("../images/h21.jpg");*/
+	/*background-color:#F5F5F5;*/
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-.domisep{
-color: #87cefa;
-font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+.domisep {
+	color: #87cefa;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-.smart{
-font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-color: #8C8C8C;
+.smart {
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+	color: #8C8C8C;
 }
 
-.menu{
-color: #fff;
-height: 77px !important;
+.menu {
+	color: #fff;
+	height: 77px !important;
+	background-color: midnightblue !important;
 }
 
- .loggedout .leftmenu{
+.loggedout .leftmenu {
 	margin: 0px !important;
 	padding-top: 0px !important;
 }
 
 /*menu*/
-.leftmenu{
+.leftmenu {
 	width: 50%;
 	float: left;
-	margin:0;
-	
+	margin: 0;
 }
-.leftmenu h4{
-	padding-left:70px;
+
+.leftmenu h4 {
+	padding-left: 70px;
 	font-weight: bold;
 	color: black;
 	font-size: 22px;
 }
 
-
-#firstlist{
+.card{
+	width: 34rem; 
+	height: 40rem; 
+	border: 1px solid; 
+	margin: 5px 30px 20px 30px;
+}
+.card-body{
+	margin: 10px;
+}
+.card-img-top{
+	width: 100%;
+	height: 60%;
+}
+#firstlist {
 	colour: orange;
 }
- 
- .rightmenu{
-	 margin:20px;
-	 float:right;
- }
- /*login and reistration buttons*/
- #buttonone{
-	 background-color: #87cefa;
-	 font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-	 color: black;
-	 border: none;
-	 font-size: 12px;
-	 font-weight: bold;
-	 text-transform: uppercase;
-	 box-shadow: 2px 2px 2px 2px black;
-	 line-height: 40px;
-	 width: 150px;
-	 margin-top: 15px;
-	 margin-right:20px;
+
+.rightmenu {
+	margin: 20px;
+	float: right;
+}
+/*login and reistration buttons*/
+#buttonone {
+	background-color: #87cefa;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+	color: black;
+	border: none;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: 2px 2px 2px 2px black;
+	line-height: 40px;
+	width: 150px;
+	margin-top: 15px;
+	margin-right: 20px;
+}
+
+#buttonone:hover {
+	color: white;
+}
+
+#buttontwo {
+	background-color: #8C8C8C;
+	color: white;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+	border: none;
+	text-transform: uppercase;
+	box-shadow: 2px 2px 2px 2px black;
+	font-weight: bold;
+	line-height: 40px;
+	width: 150px;
+	margin-left: 10px;
+}
+
+#buttontwo:hover {
+	color: black;
+}
+
+.mySlides.fade>img {
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 30px;
+	width: 70% !important;
+	height: 450px !important;
 	
- }
- #buttonone:hover{
-	 color:white;
+}
 
- }
- 
+.fade {
+	opacity: 10 !important;
+}
 
- 
- #buttontwo{
-	 background-color: #8C8C8C;
-	 color: white;
-	 font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-	 border: none;
-	 text-transform: uppercase;
-	 box-shadow: 2px 2px 2px 2px black;
-	 font-weight:bold;
-	 line-height: 40px;
-	 
-	 width: 150px;
-	 margin-left: 10px;
- }
-  #buttontwo:hover{
-	 color:black;
-	
- }
- 
-  
- .mySlides.fade>img{
- 
-	width: 100% !important;
-	height: 400px !important;
-
- }
- 
- .fade{
- 
- 	opacity : 10 !important;
- }
- 
- .homedivider{
+.homedivider {
 	margin: 0px !important;
 	padding: 0px !important;
- }
- 
- /*slider*/
- .slideshow-container{
-	 width:100% !important;
-	 position:absolute;
-	 margin-top:0px;
- }
- 
- .sensors{
- 
-	 color: #87cefa !important;
-	 font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
- }
-
- /*discription part section 3*/
- .discription{
-	height: auto;
-	width:100%;
-	padding-top: 395px;
- }
- 
-.sensor.description,.img2,.img4{
-	background-color: #DFFFEF;
 }
-.img2{
 
+/*slider*/
+.slideshow-container {
+	width: 100% !important;
+	position: relative;
+	margin-top: 0px;
+	padding: 0px;
+	height: 50px !important;
+}
+
+.sensors {
+	color: #87cefa !important;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+}
+
+/*discription part section 3*/
+.description {
+	height: auto;
+	width: 100%;
+	margin-top: 500px;
+}
+
+.sensor.description, .img2, .img4 {
+	background-color: lightseagreen;
+    padding: 20px;
+}
+
+.img2 {
 	margin-top: 10px;
 }
 
-.img4{
-
+.img4 {
 	padding-top: 1px;
 	margin-top: 77px;
 }
 
-.img1,.img3{
+.img1, .img3 {
 	background-color: #FFF;
 }
 
- h1 {
-    text-align: center;
+h1 {
+	text-align: center;
 	font-size: 45px;
 	color: black !important;
-	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
 h2 {
-    text-align: center;
+	text-align: left;
 	font-size: 30px;
-	color: black !important;
-	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-}
-h2.sensorheading1{
-margin-left:127px;
-text-align:left;
-font-size:28px;
-font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+	color: white !important;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-h2.sensorheading2{
-margin-top:25px;
- margin-left:700px;
- font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+h2.sensorheading1 {
+	margin-left: 127px;
+	text-align: left;
+	font-size: 28px;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-h2.sensorheading3{
-text-align:left;
-margin-left:170px;
- margin-top:25px;
- font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+h2.sensorheading2 {
+	margin-top: 25px;
+	margin-left: 700px;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-h2.sensorheading4{
-margin-top: 0px;
- margin-left:700px;
- font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+h2.sensorheading3 {
+	text-align: left;
+	margin-left: 170px;
+	margin-top: 25px;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
+}
 
+h2.sensorheading4 {
+	margin-top: 0px;
+	margin-left: 700px;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
 p.main {
-    text-align:center;
-	margin-left:100px;
-	margin-right:100px !important;
+	text-align: center;
+	margin-left: 100px;
+	margin-right: 100px !important;
 	font-size: 20px;
 	color: black !important;
-	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-
-
-
-p,h3{
-	color: black !important;
-	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+p, h3 {
+	color: white ;
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-
 }
-h3{
-	text-align:center;
+h3 {
+	text-align: center;
 	color: black;
-	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-	
+	font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic,
+		sans-serif;
 }
 
-.homeicon{
-color: black !important;
+.homeicon {
+	color: black !important;
 }
 
-.icon{
-
-width: 30px;
-height: 30px;
-
-
+.icon {
+	width: 65px;
+    height: 60px;
 }
