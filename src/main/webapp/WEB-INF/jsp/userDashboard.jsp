@@ -7,6 +7,7 @@
 <%@ page import="com.exchange.isep.model.DashboardDetails"%>
 <%@ page import="com.exchange.isep.model.Apartment"%>
 <%@ page import="com.exchange.isep.model.Room"%>
+<%@ page import="com.exchange.isep.model.Sensor"%>
 <%@ page import="com.exchange.isep.repository.UserDashboardRepository"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -88,47 +89,50 @@
 					style="display: block;">
 					<div class="thumbnail">
 						<div class="addHomeHeading"><%=apt.getName() %></div>
-						<% for(Room room : apt.getRooms()){ %>
+					
 						<div style="display: flex; flex-wrap: wrap;">
+							<% for(Room room : apt.getRooms()){ %>
 							<div class="add-home-temp">
 								<div class="add-home-bck"
 									style="background: whitesmoke; border: 1px solid; display: flex; width: 130px;">
 									<a href="#fgj;jsdlg;sj"> 
 									<span> 
 									<img
-											class="add-room" src="images/living-room.png"
+											class="add-room" src="images/<%= room.getRoomType() %>.png"
 											alt="Add home button">
 									</span><%= room.getName() %>
 									</a>
 								</div>
-								';
+							
 								<div id="mySidenav" class="sidenav">
+								<% for(Sensor sensor : room.getSensors()){ %>
 									<div class="sensor-display">
-										<img src="images/light_on.png" alt="Add home button"
+										<img src="images/<%= sensor.getSensorType() %>.png" alt="Add home button"
 											style="margin: 5px; margin-top: 15px;" width="50" height="50">
 										<span
-											style="text-overflow: ellipsis; width: 100px; overflow: hidden; white-space: nowrap;">Sensor
-											name</span>
+											style="text-overflow: ellipsis; width: 100px; overflow: hidden; white-space: nowrap;"><%= sensor.getName() %></span>
 										<div>
-											<label class="switch"> <input type="checkbox"
-												onChange=getSensorStatus(sensor_id)> <span
+											<label class="switch"> <input type="checkbox" id="s<%= sensor.getId()%>" <%= (Integer.parseInt(sensor.getStatus()) == 1) ? "checked" : "unchecked" %>
+												onChange="getSensorStatus(<%= sensor.getId() %>,'s<%= sensor.getId()%>')"> <span
 												class="slider round"></span>
 											</label>
 										</div>
 									</div>
+									<%} %>
 									<div class="sensor-display"
-										onclick="document.getElementById('addSensorModal').style.display='block', getroomid('.$room_id.')">
+										onclick="document.getElementById('addSensorModal').style.display='block', getroomid(<%=room.getId()%>)">
 										<img src="images/add-sensor-alt.png" alt="Add home button"
 											style="margin: 15px;" width="50" height="50"> <span>
 											Add Sensor</span>
 									</div>
 								</div>
 							</div>
+							<%} %>
 							<div class="add-home-temp">
 								<div
 									style="width: 250px; height: 200px; background: white; display: inline-flex;">
 									, <a href="#" id="add_homeid" name=''
-										onclick="document.getElementById('addRoomModal').style.display='block', gethomeid(home_id)">
+										onclick="document.getElementById('addRoomModal').style.display='block', gethomeid(<%=apt.getId()%>)">
 										<span> <img class="add-room"
 											src="images/add-room-block.png" alt="Add home button">
 									</span> Add new room
@@ -136,7 +140,7 @@
 								</div>
 							</div>
 						</div>
-						<%} %>
+						
 					</div>
 				</div>
 				<%
@@ -268,4 +272,7 @@
 	</div>
 	<%-- <jsp:include page="footer.jsp" /> --%>
 </body>
+<script src="/smarthome/js/userDashboard.js">
+
+</script>
 </html>

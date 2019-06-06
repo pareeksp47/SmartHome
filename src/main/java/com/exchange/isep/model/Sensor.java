@@ -12,13 +12,14 @@ public class Sensor {
 	int id;
 	String name;
 	String status;
+	String sensorType;
 	
-	public Sensor(int id, String name, String status){
+	public Sensor(int id, String name, String status, String sensorType){
 		
 		this.id = id;
 		this.name =  name;
 		this.status = status;
-		
+		this.sensorType = sensorType;
 	}
 	
 	/**
@@ -57,12 +58,28 @@ public class Sensor {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
+	/**
+	 * @return the sensorType
+	 */
+	public String getSensorType() {
+		return sensorType;
+	}
+
+	/**
+	 * @param sensorType the sensorType to set
+	 */
+	public void setSensorType(String sensorType) {
+		this.sensorType = sensorType;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Sensor [id=" + id + ", name=" + name + ", status=" + status + "]";
+		return "Sensor [id=" + id + ", name=" + name + ", status=" + status  + ", sensorType=" + sensorType +"]";
 	}
 	
 }

@@ -23,7 +23,6 @@ import com.exchange.isep.model.Room;
 import com.exchange.isep.model.Sensor;
 import com.exchange.isep.model.User;
 import com.exchange.isep.repository.UserDashboardRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author MANJUSREE
@@ -171,6 +170,7 @@ public class UserDashboardController {
 	  
 	  public String addSensor(@RequestParam(value="name") String name,
 			  @RequestParam(value="status") String status,
+			  @RequestParam(value="sensorType") String sensorType,
 			  HttpServletRequest request) {
 
 			String result = "";
@@ -185,8 +185,41 @@ public class UserDashboardController {
 					result = "login";
 				}else {
 					
-					Sensor sensor = new Sensor(0, name, status);
+					Sensor sensor = new Sensor(0, name, status,sensorType);
 					userDashboardRepository.addSensor(sensor);
+					result =  "success";
+				}
+			}
+			
+			
+			}catch(Exception e) {
+			result = "error";
+			System.out.println("Error :"+e);
+			}
+			
+			return result;
+  }
+	 
+	 @RequestMapping(value="updateStatus",method=RequestMethod.POST)
+	 @ResponseBody
+	 public String updateSensor(@RequestParam(value="id") int id,
+			  @RequestParam(value="status") String status,
+			  HttpServletRequest request) {
+
+			String result = "";
+			
+			try {
+			HttpSession session =  request.getSession();
+			if(null == session) {
+				result = "login";
+			}else {
+				User user = (User)session.getAttribute("user");
+				if(null == user) {
+					result = "login";
+				}else {
+					
+					
+					userDashboardRepository.updateSensor(id,status);
 					result =  "success";
 				}
 			}

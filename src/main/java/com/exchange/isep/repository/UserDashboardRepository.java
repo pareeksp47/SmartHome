@@ -36,7 +36,8 @@ public class UserDashboardRepository {
 		 sensors = jdbcTemplate.query(
                 "SELECT * FROM Sensor where Room_Id = ?", new Object[] {roomId}, 
                 (rs, rowNum) -> new Sensor(rs.getInt("id"),
-                        rs.getString("name"), rs.getString("status"))
+                        rs.getString("name"), rs.getString("status")
+                        , rs.getString("sensor_type"))
         );
 
         return sensors;
@@ -92,8 +93,8 @@ public class UserDashboardRepository {
      */
     public void addSensor(Sensor sensor) {
 
-        jdbcTemplate.update("INSERT INTO sensor(name, status) VALUES (?,?)",
-                sensor.getName(),sensor.getStatus());
+        jdbcTemplate.update("INSERT INTO sensor(name, status, sensor_type) VALUES (?,?,?)",
+                sensor.getName(),sensor.getStatus(),sensor.getSensorType());
 
     }
     
@@ -104,7 +105,7 @@ public class UserDashboardRepository {
      */
     public void addRoom(Room room) {
 
-        jdbcTemplate.update("INSERT INTO room(name, status) VALUES (?,?,?)",
+        jdbcTemplate.update("INSERT INTO room(name, status, room_type) VALUES (?,?,?)",
                 room.getName(),room.getApartmentId(), room.getRoomType());
 
     }
@@ -120,5 +121,17 @@ public class UserDashboardRepository {
                 apt.getName(),apt.getUserId(), apt.getApartmentRole(), apt.getHouseName(), apt.getStreet(), apt.getCity(), apt.getCountry(), apt.getZipCode());
 
     }
+
+    /**
+     * 
+     * @param id
+     * @param status
+     */
+	public void updateSensor(int id, String status) {
+		
+		jdbcTemplate.update("UPDATE sensor set status = ? where id = ? ",
+                status, id);
+		
+	}
 
 }
