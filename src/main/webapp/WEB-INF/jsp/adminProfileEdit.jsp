@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page session="false" %>
+    <%@ page import="java.util.ArrayList"  %>
+    <%@ page import="com.exchange.isep.controller.AdminDashboardController"  %>
+    <%@ page import="com.exchange.isep.model.User"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,14 +47,14 @@ function myFunction() {
         <li><a href="">Privacy&Terms</a></li>
         <li><img src="images\boss.png" style="margin:0px 0px 0px 280px;"></li>
         <div style="margin: 2px 2px; margin-top: -15px;">
-              <!--<?php  //if (isset($_SESSION['first_name'])) : 
-				$email=$_SESSION['email'];
-
-                $sqlu ="SELECT * FROM users WHERE email='$email'";
-                $q_run_user = mysqli_query($db,$sqlu);
-                $user = mysqli_fetch_array($q_run_user);
-			?>-->
-                <strong style="font-size: large;">Sivakumar</strong>
+        
+        <% 
+    HttpSession reqSession = request.getSession(false);
+    User user = (User) reqSession.getAttribute("user");
+    ArrayList<User> userList = (ArrayList) reqSession.getAttribute("userList");
+    %>
+             
+                <strong style="font-size: large;"><% out.println(user.getFirstName());%></strong>
                 <small>
                     <i  style="color: #888;margin-right: 1px;"></i>
                     <button class="logout_btn"><a href="../../index.php?logout='1'" style="text-decoration: none;">logout</a></button>
@@ -63,64 +66,37 @@ function myFunction() {
         <?php ?>
     </ul>
 </div>
-	<!--<div class="content">
-		 notification message -->
-		<!--  <?php if (isset($_SESSION['success'])) : ?>
-			<div class="error success" > --> 
-				<h3>
-<!-- 					<?php  
-						echo $_SESSION['success']; 
-						unset($_SESSION['success']);
-					?> -->
+	
 				</h3>
 			</div>
-		<!-- <?php endif ?> -->
 
 		<!-- user information -->
 		<div class="profile_info" style="margin: -20px;">
         </div>
-	<!--  <?php if (isset($_SESSION['message'])): ?>-->
-		<!--<div class="msg">
-			  <?php 
-				echo $_SESSION['message']; 
-				unset($_SESSION['message']);
-			?> -->
 		</div>
-	<?php endif ?>
-
-<?php $results = mysqli_query($db, "SELECT * FROM users"); ?>
-
+<%-- 	 <%  --%>
+<%--  	 if(userList !=null && userList.size() > 0){
+	 for(int i =0;i<userList.size();i++) { %> --%>
 <h2 style="text-align: center;margin-top: 40px;">Edit Admin/User Profile</h2>
-<form method="post" action="edit-admin-profile.php" style="background-color: darkgrey;">
+<form method="post" action="editAdminProfile" style="background-color: darkgrey;">
 
 	<!-- <input type="hidden" name="id" value="<?php echo $id; ?>"> -->
 	<div class="input-group">
 		<label>ID</label>
-		<input type="text" name="id" value="1">
+		<input type="text" name="id" value="<% out.println(user.getId());%>">
 	</div>
 	<div class="input-group">
 		<label>First Name</label>
-		<input type="text" name="first_name" value="Sivakumar">
+		<input type="text" name="first_name" value="<% out.println(user.getFirstName());%>">
 	</div>
 	<div class="input-group">
 		<label>Last Name</label>
-		<input type="text" name="last_name" value="Sivasankaran">
+		<input type="text" name="last_name" value="<% out.println(user.getLastName());%>">
 	</div>
 	<div class="input-group">
 		<label>Email</label>
-		<input type="text" name="email" value="sivak5692@gmail.com">
+		<input type="text" name="email" value="<% out.println(user.getEmail());%>">
 	</div>
-<!-- 	<div class="input-group"> -->
-<!-- 		<label>UserType</label> -->
-<!-- 		<input type="text" name="type" value="User"> -->
-<!-- 	</div> -->
-	<!-- <div class="input-group">
-			<label>User type</label>
-			<select name="user_type" id="user_type" >	
-				<option value="admin">Admin</option>
-				<option value="user">User</option> 
-			</select>
-	</div> -->
 	<div class="input-group">
 		<label>New Password</label>
 		<input type="password" placeholder="" name="pswd">
@@ -131,15 +107,14 @@ function myFunction() {
 	</div>
 	<!-- changing password for  admin and user , did them the same as sybmit_btn?-->
 	<!-- <?php //include('../password_update_by_admin.php'); ?> -->
-	<div class="input-group">
-		<?php if ($update == true): ?>
-			<button class="btn" type="submit" name="update_btn" style="background: #556B2F;" >update</button>
-		<?php else: ?>
-			<button class="btn" type="submit" name="save_btn" >Save</button>
-		<?php endif ?>
+	
+			<button class="btn" type="submit" name="save_btn">Save</button>
 	</div>
 </form>
     </div>
+    
+<%--     <% } %>  --%>
+<%-- 	<% } %>  --%>
 
     <div class="footer">
         <!--<h5 style="text-align: center; font-family: Hei; ">User Admin - 2019 © DOMISEP all rights reserved!</h5>-->

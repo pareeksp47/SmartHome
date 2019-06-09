@@ -30,49 +30,99 @@ public class AdminDashboardController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping({ "/adminDashboard" })
-	public String register(Model model) {
-		return "adminDashboard";
-	}
-	
-
-	@RequestMapping(value="/adminData", method = RequestMethod.GET)
-	@ResponseBody
-	public String adminDashboardData(@RequestParam(value = "id") String id,
-			HttpServletRequest request) {
+	/*@GetMapping({ "/adminDashboard" })
+	public String adminDB(Model model, HttpServletRequest request) {
+		
+		String result = "adminDashboard";
+		
+		    	HttpSession reqSession = request.getSession(false);
+		    
+		    	if(null == reqSession){
+		    		
+		    		result = "login";
+		    	}
+		 
+		return result;
+	}*/
+//	
+	@RequestMapping({ "/adminDashboard" })
+	public String adminDashboard(HttpServletRequest request) {
 
 		String result = "";
 		try {
 
 			HttpSession session = request.getSession(false);
-//			if(null != session) {
+			if(null != session) {
 
 				User user = (User) session.getAttribute("user");
+			
+			//User user = new User(0, result, result, result, null, false, result, result);
 				if(null != user) {
 					
 					List<User> userList = userRepository.findAll();
 									
-					ObjectMapper mapper = new ObjectMapper();
+					//ObjectMapper mapper = new ObjectMapper();
 					UserListDetails userListDetails = new UserListDetails();
 					userListDetails.userList = userList;
-					result = mapper.writeValueAsString(userList);
+					//result = mapper.writeValueAsString(userList);
+					session.setAttribute("userList", userList);
+					result = "adminDashboard";
 					
 				}else {
 					result = "error";
 				}
-//			}
-//			else {
-//				result = "login";
-//			}
+			}
+			else {
+				result = "login";
+			}
 			
 		} catch (Exception e) {
-			System.out.println("Error : " + e);
+			System.out.println("Error ____________________-  "+result);
+			e.printStackTrace();
 			result = "error";
 		}
 
 		return result;
 	}
-	
+
+
+//	@RequestMapping(value="/saveAdminDetails", method = RequestMethod.GET)
+//	@ResponseBody
+//	public String adminDashboardData(@RequestParam(value = "id") String id,
+//			HttpServletRequest request) {
+//
+//		String result = "";
+//		try {
+//
+//			HttpSession session = request.getSession(false);
+////			if(null != session) {
+//
+//				User user = (User) session.getAttribute("user");
+//				if(null != user) {
+//					
+//					List<User> userList = userRepository.findAll();
+//									
+//					ObjectMapper mapper = new ObjectMapper();
+//					UserListDetails userListDetails = new UserListDetails();
+//					userListDetails.userList = userList;
+//					result = mapper.writeValueAsString(userList);
+//					
+//				}else {
+//					result = "error";
+//				}
+////			}
+////			else {
+////				result = "login";
+////			}
+//			
+//		} catch (Exception e) {
+//			System.out.println("Error : " + e);
+//			result = "error";
+//		}
+//
+//		return result;
+//	}
+//	
 	@GetMapping({ "/createAdmin" })
 	public String createAdmin(Model model) {
 		return "createAdmin";
