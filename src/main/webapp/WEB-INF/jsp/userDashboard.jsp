@@ -146,6 +146,13 @@
 				<%
 }
 %>
+<%
+	if(details.apartments.size() == 0){
+%>
+	<div>No apartment added to your profile !!</div>
+<%		
+	}
+%>
 			</div>
 		</div>
 
