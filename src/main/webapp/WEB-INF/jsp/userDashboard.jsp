@@ -69,7 +69,7 @@
 			
 				<h1 class="welcome-user">Hi <% out.print(user.getFirstName()); %>, Welcome to your smart home!</h1>
 				<div class="addHomeButton">
-					<a href="#fgj;jsdlg;sj"
+					<a href="javascript:void(0)"
 						onclick="document.getElementById('addHomeModal').style.display='block'">
 						<span> <img class="add-home" src="images\add-home.png"
 							alt="Add home button"
@@ -95,7 +95,7 @@
 							<div class="add-home-temp">
 								<div class="add-home-bck"
 									style="background: whitesmoke; border: 1px solid; display: flex; width: 130px;">
-									<a href="#fgj;jsdlg;sj"> 
+									<a href="javascript:void(0)"> 
 									<span> 
 									<img
 											class="add-room" src="images/<%= room.getRoomType() %>.png"
@@ -120,7 +120,7 @@
 									</div>
 									<%} %>
 									<div class="sensor-display"
-										onclick="document.getElementById('addSensorModal').style.display='block', getroomid(<%=room.getId()%>)">
+										onclick="document.getElementById('addSensorModal').style.display='block'; getroomid(<%=room.getId()%>)">
 										<img src="images/add-sensor-alt.png" alt="Add home button"
 											style="margin: 15px;" width="50" height="50"> <span>
 											Add Sensor</span>
@@ -131,8 +131,8 @@
 							<div class="add-home-temp">
 								<div
 									style="width: 250px; height: 200px; background: white; display: inline-flex;">
-									, <a href="#" id="add_homeid" name=''
-										onclick="document.getElementById('addRoomModal').style.display='block', gethomeid(<%=apt.getId()%>)">
+									, <a href="javascript:void(0)" id="add_homeid" name=''
+										onclick="document.getElementById('addRoomModal').style.display='block'; gethomeid(<%=apt.getId()%>)">
 										<span> <img class="add-room"
 											src="images/add-room-block.png" alt="Add home button">
 									</span> Add new room
@@ -151,30 +151,55 @@
 
 		<!-- Add Home modal  -->
 		<div id="addHomeModal" class="add-home-modal">
-			<form class="add-modal-content animate" action="" method="POST">
+			<form class="add-modal-content animate" action="saveHouse" method="POST">
 				<div>
 					<span style="text-align: center;" class="modal-title input-field">
 						Add new home </span> <span class="close"
 						onclick="document.getElementById('addHomeModal').style.display='none'">&times;</span>
 				</div>
 				<div class="container">
+					 <label class="error hidden" id="homeerror"></label>
 					<div style="display: inline-flex;">
 						<span class="add-room-img"> <img class="add-room"
 							id="add-room-image" src="images/add-home-block.jpg"
 							alt="Add home button">
 						</span> <span class="add-room-details">
 							<div class="input-field">
-								<input type="text" placeholder="Home Name" name="home-name"
+								<input type="text" placeholder="Home Name" name="name" id="homename"
+									required>
+									
+							<div class="input-field">
+								<input type="text" placeholder="Home Number" name="houseName" id="name"
 									required>
 							</div>
-							<div class="input-field">
+							<!-- <div class="input-field">
 								<input type="text" placeholder="Home Address" name="address"
+									required>
+							</div> -->
+							
+							<div class="input-field">
+								<input type="text" placeholder="Street" name="street" id="street"
+									required>
+							</div>
+							
+							<div class="input-field">
+								<input type="text" placeholder="City" name="city" id="city"
+									required>
+							</div>
+							
+							<div class="input-field">
+								<input type="text" placeholder="Country" name="country" id="country"
+									required>
+							</div>
+							
+							<div class="input-field">
+								<input type="text" placeholder="Zipcode" name="zipCode" id="zipcode"
 									required>
 							</div>
 						</span>
 					</div>
 					<button class="add-btn" name="add-home-btn" type="submit"
-						onclick="document.getElementById('addHomeModal').style.display='none';">Add
+						onclick="addhome();">Add
 						home now</button>
 				</div>
 			</form>
@@ -182,7 +207,7 @@
 
 		<!-- Add Room modal  -->
 		<div id="addRoomModal" class="add-home-modal">
-			<form class="add-modal-content animate" action="" method="POST">
+			<form class="add-modal-content animate" action="saveRoom" method="POST">
 				<div>
 					<span style="text-align: center;" class="modal-title input-field">
 						Add new room </span> <span class="close"
@@ -195,11 +220,11 @@
 							alt="Add home button">
 						</span> <span class="add-room-details">
 							<div class="input-field">
-								<input type="text" placeholder="Room Name" name="room-name"
+								<input type="text" placeholder="Room Name" name="name"
 									required>
 							</div>
 							<div class="input-field">
-								<select name="room-type" id="" style=""
+								<select name="roomType" id="" style=""
 									onchange="change_valeur();">
 									<option value="">Select Room type</option>
 									<option value="living-room">Living</option>
@@ -212,13 +237,13 @@
 								</select>
 							</div>
 							<div style="display: none">
-								<input type="hidden" placeholder="Room type" id="home-id-pass"
-									name="home-id" required>
+								<input type="hidden" placeholder="Room type" id="apartmentId"
+									name="apartmentId" required>
 							</div>
 						</span>
 					</div>
 					<button class="add-btn" name="add-room-btn" type="submit"
-						onclick="document.getElementById('addRoomModal').style.display='none';">Add
+						onclick="">Add
 						Room now</button>
 				</div>
 			</form>
@@ -226,7 +251,7 @@
 
 		<!-- Add sensor modal  -->
 		<div id="addSensorModal" class="add-sensor-modal">
-			<form class="add-modal-content animate" action="" method="POST">
+			<form class="add-modal-content animate" action="saveSensor" method="POST">
 				<div>
 					<span style="text-align: center;" class="modal-title input-field">
 						Add new sensor </span> <span class="close"
@@ -238,11 +263,11 @@
 							src="images/add-sen.png" alt="Add home button">
 						</span> <span class="add-sensor-details">
 							<div class="input-field">
-								<input type="text" placeholder="Sensor Name" name="sensor-name"
+								<input type="text" placeholder="Sensor Name" name="name" id="name"
 									required>
 							</div>
 							<div class="input-field">
-								<select name="sensor-type">
+								<select name="sensorType">
 									<option value="">Select Sensor type</option>
 									<option value="light">Light</option>
 									<option value="temperature">Temperature</option>
@@ -251,18 +276,18 @@
 							</div>
 							<div style="margin-left: 55%;">
 								<label class="switch"> <input type="checkbox"
-									name="sensor-status" disabled> <span
+									name="status" disabled> <span
 									class="slider round"></span>
 								</label>
 							</div>
 							<div style="display: none">
-								<input type="text" placeholder="Sensor type" id="room-id-pass"
-									name="room-id" required>
+								<input type="text" placeholder="Sensor type" id="roomId"
+									name="roomId" required>
 							</div>
 						</span>
 					</div>
 					<button class="add-btn" type="submit" name="add-sensor-btn"
-						onclick="document.getElementById('addSensorModal').style.display='none';">Add
+						onclick="">Add
 						Sensor now</button>
 				</div>
 			</form>

@@ -669,3 +669,23 @@ input:checked+.slider:before {
 .slider.round:before {
 	border-radius: 50%;
 }
+
+.error{
+	color: red;
+    padding: 0;
+	width: 100%
+	display: block !important;
+	border: none;
+	background: none;
+	text-align: center;
+}
+
+.hidden{
+
+	display: none !important;
+}
+
+.show{
+
+	display: block !important;
+}

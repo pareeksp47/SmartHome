@@ -93,8 +93,8 @@ public class UserDashboardRepository {
      */
     public void addSensor(Sensor sensor) {
 
-        jdbcTemplate.update("INSERT INTO sensor(name, status, sensor_type) VALUES (?,?,?)",
-                sensor.getName(),sensor.getStatus(),sensor.getSensorType());
+        jdbcTemplate.update("INSERT INTO sensor(name, room_id, sensor_type, status ) VALUES (?,?,?,?)",
+                sensor.getName(),sensor.getStatus(),sensor.getSensorType(), "0");
 
     }
     
@@ -105,7 +105,7 @@ public class UserDashboardRepository {
      */
     public void addRoom(Room room) {
 
-        jdbcTemplate.update("INSERT INTO room(name, status, room_type) VALUES (?,?,?)",
+        jdbcTemplate.update("INSERT INTO room(name, apartment_id, room_type) VALUES (?,?,?)",
                 room.getName(),room.getApartmentId(), room.getRoomType());
 
     }
@@ -118,7 +118,7 @@ public class UserDashboardRepository {
     public void addApartment(Apartment apt) {
 
         jdbcTemplate.update("INSERT INTO apartment(name, user_id, house_name, street, city, country, zipcode ) VALUES (?,?,?,?,?,?,?)",
-                apt.getName(),apt.getUserId(), apt.getApartmentRole(), apt.getHouseName(), apt.getStreet(), apt.getCity(), apt.getCountry(), apt.getZipCode());
+                apt.getName(),apt.getUserId(), apt.getHouseName(), apt.getStreet(), apt.getCity(), apt.getCountry(), apt.getZipCode());
 
     }
 
@@ -131,6 +131,25 @@ public class UserDashboardRepository {
 		
 		jdbcTemplate.update("UPDATE sensor set status = ? where id = ? ",
                 status, id);
+		
+	}
+
+	public void deleteApartment(int id) {
+		
+		jdbcTemplate.update("DELETE from sensor where id = ? ", id);
+		
+	}
+	
+	
+	public void deleteRoom(int id) {
+			
+			jdbcTemplate.update("DELETE from Room where id = ? ", id);
+			
+		}
+	
+	public void deleteSensor(int id) {
+		
+		jdbcTemplate.update("DELETE from sensor where id = ? ", id);
 		
 	}
 

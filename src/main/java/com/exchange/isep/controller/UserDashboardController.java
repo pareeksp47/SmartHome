@@ -101,7 +101,7 @@ public class UserDashboardController {
 	}
 	
 	
-	
+	 @RequestMapping(value="saveHouse",method=RequestMethod.POST)
 	  public String saveApartment(@RequestParam(value="name") String name,
 			  					  @RequestParam(value="houseName") String houseName,
 			  					  @RequestParam (value="street") String street,
@@ -123,7 +123,7 @@ public class UserDashboardController {
 			  		}else {
 			  			Apartment apt = new Apartment(0, name, user.getId(), houseName, street, city, country, zipCode);
 			  			userDashboardRepository.addApartment(apt);
-			  			result =  "success";
+			  			result =  "redirect:/userDashboard";
 			  		}
 			  	}
 			    
@@ -136,6 +136,7 @@ public class UserDashboardController {
 		  return result;
 	  }
 	  
+	 @RequestMapping(value="saveRoom",method=RequestMethod.POST)
 	  public String addRoom(@RequestParam(value="name") String name,
 				  @RequestParam(value="apartmentId") int apartmentId,
 				  @RequestParam (value="roomType") String roomType,
@@ -155,7 +156,7 @@ public class UserDashboardController {
 						
 						Room room = new Room(0, name, apartmentId, roomType);
 						userDashboardRepository.addRoom(room);
-						result =  "success";
+						result =  "redirect:/userDashboard";
 					}
 				}
 				
@@ -168,8 +169,9 @@ public class UserDashboardController {
 				return result;
 	  }
 	  
+	 @RequestMapping(value="saveSensor",method=RequestMethod.POST)
 	  public String addSensor(@RequestParam(value="name") String name,
-			  @RequestParam(value="status") String status,
+			  @RequestParam(value="roomId") String roomId,
 			  @RequestParam(value="sensorType") String sensorType,
 			  HttpServletRequest request) {
 
@@ -185,9 +187,9 @@ public class UserDashboardController {
 					result = "login";
 				}else {
 					
-					Sensor sensor = new Sensor(0, name, status,sensorType);
+					Sensor sensor = new Sensor(0, name, roomId,sensorType);
 					userDashboardRepository.addSensor(sensor);
-					result =  "success";
+					result =  "redirect:/userDashboard";
 				}
 			}
 			
@@ -221,6 +223,105 @@ public class UserDashboardController {
 					
 					userDashboardRepository.updateSensor(id,status);
 					result =  "success";
+				}
+			}
+			
+			
+			}catch(Exception e) {
+			result = "error";
+			System.out.println("Error :"+e);
+			}
+			
+			return result;
+  }
+	 
+	 
+	 @RequestMapping(value="deleteHome",method=RequestMethod.POST)
+	 @ResponseBody
+	 public String delteApartment(@RequestParam(value="id") int id,
+			 HttpServletRequest request){
+
+			String result = "";
+			
+			try {
+			HttpSession session =  request.getSession();
+			if(null == session) {
+				result = "login";
+			}else {
+				User user = (User)session.getAttribute("user");
+				if(null == user) {
+					result = "login";
+				}else {
+					
+					
+					userDashboardRepository.deleteApartment(id);
+					result =  "redirect:/userDashboard";
+				}
+			}
+			
+			
+			}catch(Exception e) {
+			result = "error";
+			System.out.println("Error :"+e);
+			}
+			
+			return result;
+  }
+	 
+	 
+	 @RequestMapping(value="deleteRoom",method=RequestMethod.POST)
+	 @ResponseBody
+	 public String deleteRoom(@RequestParam(value="id") int id,
+			 HttpServletRequest request){
+
+			String result = "";
+			
+			try {
+			HttpSession session =  request.getSession();
+			if(null == session) {
+				result = "login";
+			}else {
+				User user = (User)session.getAttribute("user");
+				if(null == user) {
+					result = "login";
+				}else {
+					
+					
+					userDashboardRepository.deleteRoom(id);
+					result =  "redirect:/userDashboard";
+				}
+			}
+			
+			
+			}catch(Exception e) {
+			result = "error";
+			System.out.println("Error :"+e);
+			}
+			
+			return result;
+  }
+	 
+	 
+	 @RequestMapping(value="deleteSensor",method=RequestMethod.POST)
+	 @ResponseBody
+	 public String deleteSensor(@RequestParam(value="id") int id,
+			 HttpServletRequest request){
+
+			String result = "";
+			
+			try {
+			HttpSession session =  request.getSession();
+			if(null == session) {
+				result = "login";
+			}else {
+				User user = (User)session.getAttribute("user");
+				if(null == user) {
+					result = "login";
+				}else {
+					
+					
+					userDashboardRepository.deleteSensor(id);
+					result =  "redirect:/userDashboard";
 				}
 			}
 			
