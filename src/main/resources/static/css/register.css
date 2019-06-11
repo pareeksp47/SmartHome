@@ -1,18 +1,23 @@
 /*-----Background-----*/
 
 body{
+	  background-image:url(../images/Login.png);
 	 background-repeat:no-repeat;
 	 background-size:cover;
 	 width:100%;
-	 height:auto !important;
+	 height:auto;
 	 overflow:auto;
 	 
 }
 
-.body{
-	background-image:url(../images/register-box.jpg);
-	background-size:cover;
+.div {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 0 !important;
 }
+
 
 /*-----for border----*/
 .container{
@@ -27,7 +32,7 @@ body{
      max-width: 500px;
      height: auto;
 	 position:static;
-     padding-top: 10px;
+     padding-top: 80px;
 	 left:100px;
 }
 

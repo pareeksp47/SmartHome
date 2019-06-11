@@ -1,18 +1,14 @@
-.footer-main-div{
-	margin:auto;
-	padding:0px;
-	width:100%;
-	box-sizing: border-box;
-}
+
 a{
 	text-decoration:none;
 	outline: none;
 }
 .footer-main-div{
 	width: 100%;
-	height: auto;
-	margin: auto;
-	background:#000;
+	height: 77px;;
+	margin-top: 60px;
+	margin-bottom: 0px;
+	background:#004080;
 	padding:20px 0px;
 }
 .footer-social-icons{

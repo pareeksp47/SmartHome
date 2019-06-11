@@ -202,7 +202,7 @@ label{
 
 .welcome-user {
 	color: ghostwhite;
-	font-size: 20px;
+	font-size: 24px;
 	margin: 20px;
 }
 
@@ -355,6 +355,9 @@ form .submit:hover {
 	padding-top: 60px;
 }
 
+#addHomeModal,#addRoomModal,#addSensorModal{
+	display: none;
+}
 .add-modal-content {
 	background-color: #fefefe;
 	margin: 5% 5% 15% 30%;

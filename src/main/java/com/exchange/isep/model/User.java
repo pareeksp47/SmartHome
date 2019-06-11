@@ -19,9 +19,10 @@ public class User {
     Date createdOn;
     boolean status;
     String userRole;
+    String gender;
     
     public User(int id, String firstName, String lastName, String email, Date createdOn
-    		,boolean status, String userRole, String password) {
+    		,boolean status, String userRole, String password,String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,6 +31,7 @@ public class User {
         this.createdOn = createdOn;
         this.status = status;
         this.userRole = userRole;
+        this.gender = gender;
     }
     
     
@@ -135,8 +137,24 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", createdOn=" + createdOn + ", status=" + status + ", userRole="
+				+ ", password=" + password + ", createdOn=" + createdOn + ", status=" + status + ", gender=" + gender+ ", userRole="
 				+ userRole + "]";
+	}
+
+
+	/**
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+
+
+	/**
+	 * @param gender the gender to set
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
     
     

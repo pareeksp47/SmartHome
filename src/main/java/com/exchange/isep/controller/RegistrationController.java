@@ -39,10 +39,11 @@ public class RegistrationController {
     	String lastName = request.getParameter("lname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String gender = request.getParameter("gender");
         Date createdOn = new Date();
         boolean status = true;
         String userRole =  "Customer";
-    	User user = new User(0, firstName, lastName, email, createdOn, status, userRole, password);
+    	User user = new User(0, firstName, lastName, email, createdOn, status, userRole, password,gender);
     	userRepository.addCustomer(user);
         return "userDashboard";
     }
@@ -56,7 +57,8 @@ public class RegistrationController {
         Date createdOn = new Date();
         boolean status = true;
         String userRole =  "Admin";
-    	User user = new User(0, firstName, lastName, email, createdOn, status, userRole, password);
+    	///need to change---> 
+        User user = new User(0, firstName, lastName, email, createdOn, status, userRole, password,"");
     	userRepository.addAdmin(user);
         return "adminDashboard";
     }

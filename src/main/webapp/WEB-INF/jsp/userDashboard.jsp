@@ -56,7 +56,7 @@
 				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';"><% out.print(user.getFirstName()); %></h2>
 		</div>
 		<a href="#">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a>
-		<a href="#">FAQ</a>
+		<a href="./getFAQ">FAQ</a>
 	</div>
 	<div class="main">
 		<!-- Home content code  -->
@@ -174,7 +174,7 @@
 							<div class="input-field">
 								<input type="text" placeholder="Home Name" name="name" id="homename"
 									required>
-									
+							</div>		
 							<div class="input-field">
 								<input type="text" placeholder="Home Number" name="houseName" id="name"
 									required>

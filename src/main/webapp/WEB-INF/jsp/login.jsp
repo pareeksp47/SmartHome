@@ -80,6 +80,7 @@
 <script src="/smarthome/js/login.js">
 
 </script>
-	<jsp:include page="footer.jsp" />
+	
 </body>
+<jsp:include page="footer.jsp"></jsp:include>
 </html>

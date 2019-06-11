@@ -81,11 +81,27 @@
 				 </div>
           </div> 
 		  </div>
+		  
+		   <!-----Gender---->
+		          <div class="col-sm-12 col-sm-exr" style="padding-top: 0px;" > 
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="pass">Gender &nbsp</label></div>
+				 <div class="col-xs-4"> 
+				  <label class="pass">
+			             Male  <input type="radio" name="gender" id="male" value="male"  checked>  </label>
+			             <label class="pass"> 
+			             Female  <input type="radio" name="gender" id="female" value="female" > </label>
+				 </div> 
+				
+          </div> 
+		  </div>
+		  
 		  <br/>
 		  <br/>
-     <!-----------For Phone number-------->
+    
 	 
-         <div class="col-sm-12">
+         <div class="col-sm-12" style="padding-top: 20px;">
 		
 		     <div class="col-sm-12">
 		         <div  >
@@ -103,7 +119,7 @@
 
 </div>
 </div>
-<jsp:include page="footer.jsp" />
 </body>
 <script src="/smarthome/js/registration.js"></script>
+<jsp:include page="footer.jsp"></jsp:include>
 </html>
