@@ -81,9 +81,10 @@ $(document).ready(function(){
 			</h2>
 		</div>
 		<a href="/smarthome/userDashboard" style="padding: 10px;"><img
-			class="nav-icon" src="images\db-icon-nav.png">Dashboard</a> <a
-			href="#" style="padding: 10px;"><img class="nav-icon"
-			src="images\pro-icon-nav.png">Profile</a> <a href="#"
+			class="nav-icon" src="images\db-icon-nav.png">Dashboard</a> 
+		<a href="/smarthome/profile" style="padding: 10px;"><img class="nav-icon"
+			src="images\pro-icon-nav.png">Profile</a> 
+		<a href="/smarthome/contactus"
 			style="padding: 10px;"> <img class="nav-icon"
 			src="images\sup-icon-nav.png">Support
 		</a> <a href="/smarthome/getFAQ" style="padding: 10px;"> <img

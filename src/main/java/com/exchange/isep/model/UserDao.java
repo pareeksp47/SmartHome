@@ -21,7 +21,7 @@ public class UserDao {
 				
 				User user = new User(rs.getInt("ID"), 
 						rs.getString("First_Name"), 
-						rs.getString("First_Name"), 
+						rs.getString("Last_Name"), 
 						rs.getString("Email"), 
 						null, 
 						false, 

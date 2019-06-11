@@ -45,9 +45,11 @@ href="/smarthome/css/navigation.css">
 				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';"><% out.print(user.getFirstName()); %></h2>
 		</div>
 		<a href="/smarthome/userDashboard" style="padding: 10px;"><img class="nav-icon"
-			src="images\db-icon-nav.png">Dashboard</a> <a href="#"
+			src="images\db-icon-nav.png">Dashboard</a> 
+			<a href="/smarthome/profile"
 			style="padding: 10px;"><img class="nav-icon"
-			src="images\pro-icon-nav.png">Profile</a> <a href="#"
+			src="images\pro-icon-nav.png">Profile</a> 
+			<a href="/smarthome/contactus"
 			style="padding: 10px;"> <img class="nav-icon"
 			src="images\sup-icon-nav.png">Support
 		</a> <a href="/smarthome/getFAQ" style="padding: 10px;"> <img class="nav-icon"

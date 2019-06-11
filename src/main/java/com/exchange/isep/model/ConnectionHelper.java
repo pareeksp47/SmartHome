@@ -12,9 +12,9 @@ public class ConnectionHelper {
 
 		try {
 			String myDriver = "com.mysql.jdbc.Driver";
-			String myUrl = "jdbc:mysql://localhost:3306/domisep?useSSL=false";
+			String myUrl = "jdbc:mysql://localhost:3306/smarthome?useSSL=false";
 			Class.forName(myDriver);
-			Connection conn = DriverManager.getConnection(myUrl, "root", "password");
+			Connection conn = DriverManager.getConnection(myUrl, "root", "root");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
