@@ -136,7 +136,7 @@ public class UserDashboardRepository {
 
 	public void deleteApartment(int id) {
 		
-		jdbcTemplate.update("DELETE from sensor where id = ? ", id);
+		jdbcTemplate.update("DELETE from apartment where id = ? ", id);
 		
 	}
 	

@@ -14,12 +14,12 @@
 </ul>
 </div>
 
-<div class="footer-menu-one">
-<ul>
-<li><a href="/smarthome/site/unauthorized/home.php">Home</a></li>
-<li><a href="/smarthome/site/user/contact-us.php">Contact us</a></li>
-</ul>
-</div>
+<!-- <div class="footer-menu-one"> -->
+<!-- <ul> -->
+<!-- <li><a href="/smarthome/site/unauthorized/home.php">Home</a></li> -->
+<!-- <li><a href="/smarthome/site/user/contact-us.php">Contact us</a></li> -->
+<!-- </ul> -->
+<!-- </div> -->
 <div class="footer-menu-two">
 </div>
 
