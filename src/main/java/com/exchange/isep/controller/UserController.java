@@ -32,46 +32,32 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public String allUsers() {
+	public String allUsers(HttpServletRequest request) {
 
 		String result = "";
+		
+		
 		try {
-			List<User> users = userRepository.findAll();
 
-			ObjectMapper mapper = new ObjectMapper();
-			result = mapper.writeValueAsString(users);
-		} catch (Exception e) {
-			System.out.println("Error :" + e);
+	    	HttpSession reqSession = request.getSession(false);
+	    
+	    	if(null == reqSession || null == reqSession.getAttribute("user")){
+	    		
+	    		result = "login";
+	    	}else {
+	    		List<User> users = userRepository.findAll();
+
+				ObjectMapper mapper = new ObjectMapper();
+				result = mapper.writeValueAsString(users);
+	    		
+	    	}
+		}catch(Exception e) {
+			result = "error";
 		}
+ 
 		return result;
 	}
-//
-//
-//	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-//	public String authUser(HttpServletRequest request) {
-//
-//		String result = "login";
-//		try {
-//			String userName = request.getParameter("username");
-//			String password = request.getParameter("password");
-//
-//			User user = userRepository.authenticate(userName, password);
-//			if (null != user) {
-//				if (user.getUserRole().equals("Customer")) {
-//					result = "userDashboard";
-//				} else {
-//					result = "adminDashboard";
-//				}
-//
-//				HttpSession session = request.getSession(true);
-//				session.setAttribute("user", user);
-//			}
-//		} catch (Exception e) {
-//			System.out.println("Error :" + e);
-//			result = "error";
-//		}
-//		return result;
-//	}
+
 
 
 }

@@ -3,14 +3,19 @@
  */
 package com.exchange.isep.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author SAURABH
  *
  */
-public class User {
+public class User implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5647656541786181021L;
 	int id;
     String firstName;
     String lastName;
