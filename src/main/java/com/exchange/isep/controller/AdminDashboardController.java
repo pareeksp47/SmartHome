@@ -30,20 +30,7 @@ public class AdminDashboardController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	/*@GetMapping({ "/adminDashboard" })
-	public String adminDB(Model model, HttpServletRequest request) {
-		
-		String result = "adminDashboard";
-		
-		    	HttpSession reqSession = request.getSession(false);
-		    
-		    	if(null == reqSession){
-		    		
-		    		result = "login";
-		    	}
-		 
-		return result;
-	}*/
+
 //	
 	@RequestMapping({ "/adminDashboard" })
 	public String adminDashboard(HttpServletRequest request) {
@@ -61,10 +48,10 @@ public class AdminDashboardController {
 					
 					List<User> userList = userRepository.findAll();
 									
-					//ObjectMapper mapper = new ObjectMapper();
+					ObjectMapper mapper = new ObjectMapper();
 					UserListDetails userListDetails = new UserListDetails();
 					userListDetails.userList = userList;
-					//result = mapper.writeValueAsString(userList);
+					result = mapper.writeValueAsString(userList);
 					session.setAttribute("userList", userList);
 					result = "adminDashboard";
 					
