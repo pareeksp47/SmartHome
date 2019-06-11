@@ -90,7 +90,7 @@
 					<div class="thumbnail">
 					
 						<div class="addHomeHeading"><%=apt.getName() %>
-						<img src="images/del_home_icon.png" style="width: 50px;float: right;padding-bottom: 5px;height: 50px;margin-top: -10px;"></div>
+						<a href="/smarthome/deleteHome?id=<%=apt.getId()%>" style="width: 50px;float: right;padding-bottom: 5px;height: 50px;margin-top: -10px;"><img src="images/del_home_icon.png" ></a></div>
 					
 						<div style="display: flex; flex-wrap: wrap;">
 							<% for(Room room : apt.getRooms()){ %>

@@ -236,7 +236,7 @@ public class UserDashboardController {
   }
 	 
 	 
-	 @RequestMapping(value="deleteHome",method=RequestMethod.POST)
+	 @RequestMapping(value="deleteHome",method=RequestMethod.GET)
 	 public String delteApartment(@RequestParam(value="id") int id,
 			 HttpServletRequest request){
 
