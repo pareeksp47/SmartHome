@@ -30,8 +30,6 @@ public class AdminDashboardController {
 	@Autowired
 	private UserRepository userRepository;
 	
-
-//	
 	@RequestMapping({ "/adminDashboard" })
 	public String adminDashboard(HttpServletRequest request) {
 
@@ -125,5 +123,63 @@ public class AdminDashboardController {
 	public String random(Model model) {
 		return "random";
 
+	}
+	
+	@RequestMapping(value="deleteUser",method=RequestMethod.GET)
+	 public String deleteUser(@RequestParam(value="id") int id,
+			 HttpServletRequest request){
+
+			String result = "";
+			
+			try {
+			HttpSession session =  request.getSession();
+			if(null == session) {
+				result = "login";
+			}else {
+				User user = (User)session.getAttribute("user");
+				if(null == user) {
+					result = "login";
+				}else {
+					
+					
+					userRepository.deleteUser(id);
+					result =  "redirect:/adminDashboard";
+				}
+			}
+			
+			}catch(Exception e) {
+			result = "error";
+			System.out.println("Error :"+e);
+			}
+			
+			return result;
+ }
+	//updating admin's password
+	@RequestMapping(value="editAdminProfile",method=RequestMethod.POST)
+	 public String updateUser(@RequestParam(value="email") String email, @RequestParam(value="pswd") String password,
+			 HttpServletRequest request){
+
+			String result = "";
+		
+			try {
+			HttpSession session =  request.getSession();
+			if(null == session) {
+				result = "login";
+			}else {
+				User user = (User)session.getAttribute("user");
+				if(null == user) {
+					result = "login";
+				}else {
+					userRepository.updateUser(email, password);;
+					result =  "redirect:/adminDashboard";
+				}
+			}
+			
+			}catch(Exception e) { 
+			result = "error";
+			System.out.println("Error :"+e);
+			}
+			
+			return result;
 	}
 }

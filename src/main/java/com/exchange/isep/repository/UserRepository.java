@@ -67,10 +67,18 @@ public class UserRepository {
                         ,rs.getBoolean("status"), rs.getString("user_role"), rs.getString("password"),rs.getString("gender"))
         );
 		
-		
-		
-		
         return result.size() == 0 ? null : result.get(0) ;
 	}
+	
+	public void deleteUser(int id) {
+		
+		jdbcTemplate.update("DELETE from Users where id = ? ", id);
+		
+	}
+
+public void updateUser(String email, String password) {
+	
+	jdbcTemplate.update("UPDATE users SET password = ? WHERE email= ?",password, email );
+}
 
 }
