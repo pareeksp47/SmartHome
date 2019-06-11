@@ -51,12 +51,18 @@
 		</div>
 		<div class="profile_part">
 			<%-- 				<% --%>
-			<% 		System.out.println(user.getGender());		if(null != user.getGender() && user.getGender().equals("Male")){ 
+			<%
+				System.out.println(user.getGender());
+				if (null != user.getGender() && user.getGender().equals("Male")) {
 			%>
 			<img src="images\avatar_male.png" alt="Avatar" class="avatar">
-			<%} else{%> 
-								<img src="images\avatar_image.png" alt="Avatar" class="avatar">
-			<%} %> 
+			<%
+				} else {
+			%>
+			<img src="images\avatar_image.png" alt="Avatar" class="avatar">
+			<%
+				}
+			%>
 			<h2
 				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';">
 				<%
@@ -64,18 +70,16 @@
 				%>
 			</h2>
 		</div>
-		<a href="/smarthome/userDashboard" style="padding: 10px;"><img class="nav-icon"
-			src="images\db-icon-nav.png">Dashboard</a> <a href="#"
-			style="padding: 10px;"><img class="nav-icon"
+		<a href="/smarthome/userDashboard" style="padding: 10px;"><img
+			class="nav-icon" src="images\db-icon-nav.png">Dashboard</a> <a
+			href="#" style="padding: 10px;"><img class="nav-icon"
 			src="images\pro-icon-nav.png">Profile</a> <a href="#"
 			style="padding: 10px;"> <img class="nav-icon"
 			src="images\sup-icon-nav.png">Support
-		</a> <a href="/smarthome/getFAQ" style="padding: 10px;"> <img class="nav-icon"
-			src="images\faq-icon-nav.png">FAQ
-		</a>
-		<a href="/smarthome/logout"
-			style="padding: 10px;"><img class="nav-icon"
-			src="images\pro-icon-nav.png">Logout</a> 
+		</a> <a href="/smarthome/getFAQ" style="padding: 10px;"> <img
+			class="nav-icon" src="images\faq-icon-nav.png">FAQ
+		</a> <a href="/smarthome/logout" style="padding: 10px;"><img
+			class="nav-icon" src="images\pro-icon-nav.png">Logout</a>
 	</div>
 	<div class="main">
 		<!-- Home content code  -->
@@ -129,7 +133,8 @@
 											class="add-room" src="images/<%=room.getRoomType()%>.png"
 											alt="Add home button">
 									</span><%=room.getName()%>
-									</a> <a style="margin-top: 5px; margin-right: 4px;" href="/smarthome/deleteRoom?id=<%=room.getId() %>"><img
+									</a> <a style="margin-top: 5px; margin-right: 4px;"
+										href="/smarthome/deleteRoom?id=<%=room.getId()%>"><img
 										src="https://img.icons8.com/small/16/000000/cancel.png"
 										style="width: 12px; height: 12px"></a>
 								</div>
@@ -145,7 +150,8 @@
 											style="text-overflow: ellipsis; width: 100px; overflow: hidden; white-space: nowrap;"><%=sensor.getName()%></span>
 										<div>
 											<a
-												style="margin: -6px; padding: 9px; float: right; height: 15px; width: 32px;" href="/smarthome/deleteSensor?id=<%=sensor.getId()%>"><img
+												style="margin: -6px; padding: 9px; float: right; height: 15px; width: 32px;"
+												href="/smarthome/deleteSensor?id=<%=sensor.getId()%>"><img
 												src="https://img.icons8.com/windows/32/000000/delete-column.png"></a>
 											<label class="switch"> <input type="checkbox"
 												id="s<%=sensor.getId()%>"
@@ -197,62 +203,63 @@
 			</div>
 		</div>
 
-		<!-- Add Home modal  -->
-		<div id="addHomeModal" class="add-home-modal">
-			<form class="add-modal-content animate" action="saveHouse"
-				method="POST">
-				<div>
-					<span style="text-align: center;" class="modal-title input-field">
-						Add new home </span> <span class="close"
-						onclick="document.getElementById('addHomeModal').style.display='none'">&times;</span>
-				</div>
-				<div class="container">
-					<label class="error hidden" id="homeerror"></label>
-					<div style="display: inline-flex;">
-						<span class="add-room-img"> <img class="add-room"
-							id="add-room-image" src="images/add-home-block.jpg"
-							alt="Add home button">
-						</span> <span class="add-room-details">
-							<div class="input-field">
-								<input type="text" placeholder="Home Name" name="name"
-									id="homename" required>
+	</div>
 
-							</div>
-					</div>
+	<!-- Add Home modal  -->
+	<div id="addHomeModal" class="add-home-modal">
+		<form class="add-modal-content animate"
+			style="height: 81%; width: 40%; padding-top: 10px;"
+			action="saveHouse" method="POST">
+			<div>
+				<span style="text-align: center;" class="modal-title input-field">
+					Add new home </span> <span class="close" style="right: 31%; top: 22%;"
+					onclick="document.getElementById('addHomeModal').style.display='none'">&times;</span>
+			</div>
+			<div class="container">
+				<label class="error hidden" id="homeerror"></label>
+				<div style="display: inline-flex;">
+					<span class="add-room-img"> <img class="add-room"
+						id="add-room-image" src="images/add-home-block.jpg"
+						alt="Add home button">
+					</span> <span class="add-room-details">
+						<div class="input-add-home input-field">
+							<input type="text" placeholder="Home Name" name="name"
+								id="homename" required>
 
-					<div class="input-field">
-						<input type="text" placeholder="Home Number" name="houseName"
-							id="name" required>
-					</div>
-					<!-- <div class="input-field">
+						</div>
+
+						<div class="input-add-home input-field">
+							<input type="text" placeholder="Home Number" name="houseName"
+								id="name" required>
+						</div> <!-- <div class="input-field">
 								<input type="text" placeholder="Home Address" name="address"
 									required>
 							</div> -->
 
-					<div class="input-field">
-						<input type="text" placeholder="Street" name="street" id="street"
-							required>
-					</div>
+						<div class="input-add-home input-field">
+							<input type="text" placeholder="Street" name="street" id="street"
+								required>
+						</div>
 
-					<div class="input-field">
-						<input type="text" placeholder="City" name="city" id="city"
-							required>
-					</div>
+						<div class="input-add-home input-field">
+							<input type="text" placeholder="City" name="city" id="city"
+								required>
+						</div>
 
-					<div class="input-field">
-						<input type="text" placeholder="Country" name="country"
-							id="country" required>
-					</div>
+						<div class="input-add-home input-field">
+							<input type="text" placeholder="Country" name="country"
+								id="country" required>
+						</div>
 
-					<div class="input-field">
-						<input type="text" placeholder="Zipcode" name="zipCode"
-							id="zipcode" required>
-					</div>
-					</span>
+						<div class="input-add-home input-field">
+							<input type="text" placeholder="Zipcode" name="zipCode"
+								id="zipcode" required>
+						</div>
 				</div>
-				<button class="add-btn" name="add-home-btn" type="submit"
-					onclick="addhome();">Add home now</button>
-		</div>
+				</span>
+			</div>
+			<button class="add-btn" style="top: 82%;" name="add-home-btn"
+				type="submit" onclick="addhome();">Add home now</button>
 		</form>
 	</div>
 
