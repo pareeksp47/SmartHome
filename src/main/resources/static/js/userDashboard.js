@@ -1,11 +1,18 @@
+var count = 0;
 function getSensorStatus(id,tagId){
 	
-	console.log("id==>"+$('#'+tagId).attr('checked'));
+	//console.log("id==>"+$('#'+tagId).attr('checked'));
 	var status;
-	if($('#'+tagId).attr('checked') == "checked"){
+	if( $('#'+tagId).attr('checked') == "checked"){
 		status = "0";
+		lightcheck(id,"off");
+		$('#'+tagId).removeAttr('checked');
+		$('#'+tagId).attr('unchecked','unchecked');
 	}else{
 		status = "1";
+		lightcheck(id,"on");
+		$('#'+tagId).removeAttr('unchecked');
+		$('#'+tagId).attr('checked','checked');
 	}
 	$.ajax({
 		  type: "POST",
@@ -21,6 +28,16 @@ function getSensorStatus(id,tagId){
 			
 	
 		});    
+}
+
+function lightcheck(tagId, status){
+	
+	if($('#img'+tagId).attr("src").indexOf("light") != -1){
+		
+		
+		$('#img'+tagId).attr("src","images/light_"+status+".png?id="+count);
+		count++;
+	}
 }
 
 

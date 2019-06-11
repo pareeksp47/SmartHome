@@ -51,7 +51,7 @@
 		</div>
 		<div class="profile_part">
 			<%-- 				<% --%>
-			<% 		System.out.println(user.getGender());		if(null != user.getGender() && user.getGender().equals("Male")){ 
+			<% 				if(null != user.getGender() && user.getGender().equals("Male")){ 
 			%>
 			<img src="images\avatar_male.png" alt="Avatar" class="avatar">
 			<%} else{%> 
@@ -137,9 +137,12 @@
 								<div id="mySidenav" class="sidenav">
 									<%
 										for (Sensor sensor : room.getSensors()) {
+											String status = sensor.getSensorType().equals("light") == true ?  sensor.getStatus().equals("1") == true ? 
+													sensor.getSensorType()+"_on" : sensor.getSensorType()+"_off" : sensor.getSensorType();
+											
 									%>
 									<div class="sensor-display">
-										<img src="images/<%=sensor.getSensorType()%>.png"
+										<img id="img<%=sensor.getId()%>" src="images/<%= status%>.png"
 											alt="Add home button" style="margin: 5px; margin-top: 15px;"
 											width="50" height="50"> <span
 											style="text-overflow: ellipsis; width: 100px; overflow: hidden; white-space: nowrap;"><%=sensor.getName()%></span>
