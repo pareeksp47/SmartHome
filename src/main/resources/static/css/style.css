@@ -236,32 +236,33 @@ form {
 }
 
 #myInput {
-	background-image: url(https://static.runoob.com/images/mix/searchicon.png);
-    background-position: 13px 10px;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    float: left;
-    /* width: 50%; */
-    /* font-size: 16px; */
-    padding: 12px 20px 12px 40px;
-    border: 1px solid gray;
-    margin: 2% 3%;
-    margin-bottom: auto;
+	background-image:
+		url(https://static.runoob.com/images/mix/searchicon.png);
+	background-position: 13px 10px;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+	float: left;
+	/* width: 50%; */
+	/* font-size: 16px; */
+	padding: 12px 20px 12px 40px;
+	border: 1px solid gray;
+	margin: 2% 3%;
+	margin-bottom: auto;
 }
 
 #myTable {
 	border-collapse: collapse;
-    width: 95%;
-    border: 1px solid #ddd;
-    margin: 20px;
-    margin-left: 35px;
-    font-size: 15px;
-    color: white;
+	width: 95%;
+	border: 1px solid #ddd;
+	margin: 20px;
+	margin-left: 35px;
+	font-size: 15px;
+	color: white;
 }
 
 #myTable th, #myTable td {
 	text-align: left;
-    padding: 7px;
+	padding: 7px;
 }
 
 #myTable tr {
@@ -271,7 +272,8 @@ form {
 #myTable tr.header, #myTable tr:hover {
 	background-color: #f1f1f1;
 }
-#myTable tr:hover{
+
+#myTable tr:hover {
 	color: #0D202F;
 }
 
@@ -284,7 +286,6 @@ body {
 	font-size: 120%;
 	background: #F8F8FF;
 }
-
 
 .header {
 	width: 80%;
@@ -316,6 +317,7 @@ body {
 	position: fixed;
 	height: 80px !important;
 	background-color: #001A30 !important;
+	height: 80px !important
 }
 
 .loggedout .leftmenu {
@@ -332,29 +334,32 @@ body {
 
 .rightmenu {
 	display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    width: 20%;
-    float: right;
-    padding: 15px;
+	flex-wrap: wrap;
+	margin: 0;
+	width: 20%;
+	float: right;
+	padding: 15px;
 }
-.userName{
+
+.userName {
 	color: white;
-    padding: 18px;
-    padding-left: 10px;
-    text-align: center;
-    font-size: 22px;
-    font-family: 'Arbutus Slab';
+	padding: 18px;
+	padding-left: 10px;
+	text-align: center;
+	font-size: 22px;
+	font-family: 'Arbutus Slab';
 }
-.logout{
+
+.logout {
 	text-decoration: none;
-    color: white;
-    border: 0.5px solid;
-    padding: 10px;
-    margin: 8px;
-    height: 20px;
-    border-radius: 10px;
+	color: white;
+	border: 0.5px solid;
+	padding: 10px;
+	margin: 8px;
+	height: 20px;
+	border-radius: 10px;
 }
+
 .side-nav-admin-taskbar {
 	height: 100%;
 	font-family: 'serif';
@@ -384,39 +389,41 @@ body {
 	text-decoration: none;
 }
 
-.homeicon{
+.homeicon {
 	display: flex !important;
 	flex-wrap: wrap;
 	padding: 10px;
 	text-decoration: white;
 }
 
-label{
+label {
 	font-weight: none !important;
 }
 
-.domisep{
-	font-size: 25px	;
-	color: white; 
+.domisep {
+	font-size: 25px;
+	color: white;
 	padding: 10px;
 	margin: 5px !important;
 	font-weight: normal !important;
-/* 	font-family: 'Kaushan Script'; */
+	/* 	font-family: 'Kaushan Script'; */
 	letter-spacing: 1.5px;
 }
+
 .icon {
 	width: 55px;
 	height: 55px;
 }
-.profile_part img{
+
+.profile_part img {
 	margin: 0px 55px 0px 65px;
 }
 
 .avatar {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
 }
 
 .logo {
@@ -426,17 +433,17 @@ label{
 
 .content {
 	font-size: 16px;
-    padding: 0px 10px;
-    height: 100%;
-    overflow: auto;
-    padding-top: 7%;
-    /* margin-left: 20%; */
-    background-image: url(../images/admin-DB.jpg);
-    background-size: cover;
-    width: 100%;
-    /* border: 1px solid #B0C4DE; */
-    /* background: white; */
-    border-radius: 0px 0px 10px 10px;
+	padding: 0px 10px;
+	height: 100%;
+	overflow: auto;
+	padding-top: 7%;
+	/* margin-left: 20%; */
+	background-image: url(../images/admin-DB.jpg);
+	background-size: cover;
+	width: 100%;
+	/* border: 1px solid #B0C4DE; */
+	/* background: white; */
+	border-radius: 0px 0px 10px 10px;
 }
 
 .addAdminButton a {
@@ -449,26 +456,28 @@ label{
 	color: #0D202F;
 	font-size: 18px;
 }
-.del-user{
+
+.del-user {
 	width: 50px;
-    height: 50px;
-    padding: 4px;
+	height: 50px;
+	padding: 4px;
 }
 
 .addAdminButton {
 	padding: 10px;
 	padding-bottom: 15px;
-    float: right !important;
-    /* width: 150px; */
-    /* height: 25px; */
-    margin: 20px;
-    margin-right: 0px;
-    margin-left: 60%;
-    background-color: white;
-    /* opacity: 0.3; */
-    border-radius: 10px;
-    border: 1px solid;
+	float: right !important;
+	/* width: 150px; */
+	/* height: 25px; */
+	margin: 20px;
+	margin-right: 0px;
+	margin-left: 60%;
+	background-color: white;
+	/* opacity: 0.3; */
+	border-radius: 10px;
+	border: 1px solid;
 }
+
 .input-group {
 	margin: 10px 0px 10px 0px;
 }
@@ -542,4 +551,138 @@ label{
 	content: "";
 	display: block;
 	clear: both;
+}
+
+/* Support form and add home, room, sensor form CSS - common */
+form {
+	margin: 0px;
+	/* padding: 30px; */
+	float: left;
+	transition: all 3s ease-in-out;
+	/*border: 2px solid green;*/
+}
+
+.form-control {
+	width: 700px;
+	height: 180px;
+	outline: none;
+	border-bottom: 2px solid #000000;
+	font-size: 14px;
+	margin-bottom: 16px;
+}
+
+textarea {
+	text-align: left;
+	padding-left: 5px;
+}
+
+form .submit {
+	background: #388dff;
+	border-color: transparent;
+	font-size: 18px;
+	/*font-weight: bold;*/
+	letter-spacing: 2px;
+	height: 30px;
+	margin-top: 20px;
+}
+
+form .submit:hover {
+	background-color: #d7dde5;
+	cursor: pointer;
+}
+
+.input-add-home {
+	padding: 5px !important;
+	margin: 10px !important;
+	margin-left: 30px !important;
+}
+
+.input-add-home input {
+	width: 320px !important;
+}
+
+.input-field {
+	/* padding: 10px;*/
+	text-align: left;
+	margin: 20px;
+	margin-left: 30px;
+	display: inline-flex;
+	margin-bottom: 10px;
+}
+
+.input-field input {
+	width: 95%;
+	height: 35px;
+}
+
+/* Adding modal css */
+.add-home-modal, .add-room-modal, .add-sensor-modal {
+	display: none;
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/* 	overflow: auto; */
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+	padding-top: 15px;
+}
+
+#addHomeModal, #addRoomModal, #addSensorModal {
+	display: none;
+}
+
+.add-modal-content {
+	background-color: #fefefe;
+	margin: 2% 5% 15% 30%;
+	padding-top: 30px;
+	border: 1px solid #888;
+	width: 35%;
+	height: 60%;
+}
+
+.modal-title {
+	text-align: center;
+	font-size: 24px;
+	margin: 20px !important;
+	margin-left: 37%;
+	font-weight: bold;
+}
+
+.add-btn {
+	margin-top: 20px;
+	background-color: rgb(1, 83, 143);
+	color: white;
+	border: 0px;
+	width: 20%;
+	margin-left: 10%;
+	font-size: 1.3em;
+	position: absolute;
+	top: 60%;
+	right: 30%;
+	left: 33%;
+	border: 0px
+}
+
+.close {
+	color: black;
+	float: right;
+	font-size: 40px !important;
+	font-weight: bold;
+	position: absolute;
+	top: 24%;
+	right: 36%;
+}
+
+.add-room-img, .add-sensor-img {
+	padding: 25px;
+	margin-left: 20px;
+	width: 30%;
+}
+
+.add-home, .add-room, .add-sensor {
+	width: 90px;
+	height: 100px;
 }

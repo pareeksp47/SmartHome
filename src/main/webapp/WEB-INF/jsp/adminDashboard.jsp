@@ -97,17 +97,17 @@
 
 		<!--Search box for admin users-->
 		<div style="display: flex; flex-wrap: wrap; margin-right: 0px;">
-		<input type="text" id="myInput" onkeyup="myFunction()"
-			placeholder="Search Name..." style="">
-		<div class="addAdminButton">
-			<a href="javascript:void(0)"
-				onclick="document.getElementById('addHomeModal').style.display='block'">
-				<span> <img class="add-home" src="https://img.icons8.com/metro/52/000000/add-user-male.png"
-					alt="Add home button"
-					style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: -10px;">
-			</span> 					 <span> Create Admin </span>
-			</a>
-		</div>
+			<input type="text" id="myInput" onkeyup="myFunction()"
+				placeholder="Search Name..." style="">
+			<div class="addAdminButton">
+				<span> <a href="#"
+					onclick="document.getElementById('addAdminModal').style.display='block'">
+						<img class="add-home"
+						src="https://img.icons8.com/metro/52/000000/add-user-male.png"
+						alt="Add home button"
+						style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: -10px;"></span>
+				<span> Create Admin </span> </a>
+			</div>
 		</div>
 		<!-- when user manipulate database show messages here -->
 
@@ -164,10 +164,12 @@
 						out.println(userList.get(i).getUserRole());
 					%>
 				</td>
-				<td style="text-align: center;"><img class="del-user" src="images\del_user_icon.png">
-<%-- 				<a href="delete.jsp?id=<%=userList.get(i).getId()%>" --%>
-<!-- 					class="del_btn">Delete</a> -->
-					</td>
+				<td style="text-align: center;"><a href="#"
+					onclick="document.getElementById('addAdminModal').style.display='block'">
+						<img class="del-user" src="images\edit-admin.png">
+				</a> <a><img class="del-user" src="images\del_user_icon.png"></a>
+					<%-- 				<a href="delete.jsp?id=<%=userList.get(i).getId()%>" --%>
+					<!-- 					class="del_btn">Delete</a> --></td>
 			</tr>
 			<%
 				}
@@ -193,6 +195,104 @@
 		</table>
 
 	</div>
+
+	<div id="addAdminModal" class="add-home-modal">
+		<form class="add-modal-content animate"
+			style="height: 80%; width: 40%; padding-top: 0px;"
+			action="saveAdminDetails" method="POST">
+			<div>
+				<span style="text-align: center;" class="modal-title input-field">
+					Create Admin </span> <span class="close" style="right: 28%; top: 7%;"
+					onclick="document.getElementById('addAdminModal').style.display='none'">&times;</span>
+			</div>
+			<div class="container">
+				<div style="display: inline-flex;">
+<!-- 					<span class="add-room-img"> <img class="add-room" -->
+<!-- 						id="add-room-image" src="images/add-home-block.jpg" -->
+<!-- 						alt="Add home button"> -->
+<!-- 					</span> -->
+					 <span class="add-room-details">
+						<div class="input-add-home input-field">
+							<label>First Name </label> <input type="text" name="fname"
+								id="fname" style="margin-left: 76px;" placeholder="First Name">
+						</div>
+						<div class="input-add-home input-field">
+							<label>Last Name </label>
+							 <input type="text" style="margin-left: 76px;"  name="lname"
+								id="lname" placeholder="Last Name">
+						</div>
+
+						<div class="input-add-home input-field">
+						<label>Email </label>
+							<input type="email" style="margin-left: 114px;" name="email" id="email" placeholder="Email">
+						</div>
+
+						<div class="input-add-home input-field">
+						<label>Password </label>
+							<input type="password" style="margin-left: 85px;" placeholder="Password" id="password"
+								name="password">
+						</div>
+
+						<div class="input-add-home input-field">
+						<label>Confirm Password </label>
+							<input type="password" style="margin-left: 15px;" placeholder="Confirm Password"
+								id="cpassword" name="cpassword">
+						</div>
+				</div>
+				</span>
+			</div>
+			<button class="add-btn" style="top: 78%;" name="add-home-btn"
+				type="submit" onclick="addhome();">Add Admin Now</button>
+		</form>
+	</div>
+
+
+	<div id="editAdminModal" class="add-home-modal">
+		<form class="add-modal-content animate"
+			style="height: 70%; width: 40%; padding-top: 10px;"
+			action="saveAdminDetails" method="POST">
+			<div>
+				<span style="text-align: center;" class="modal-title input-field">
+					Edit Admin </span> <span class="close" style="right: 28%; top: 12%;"
+					onclick="document.getElementById('addAdminModal').style.display='none'">&times;</span>
+			</div>
+			<div class="container">
+				<div style="display: inline-flex;">
+					<span class="add-room-img"> <img class="add-room"
+						id="add-room-image" src="images/add-home-block.jpg"
+						alt="Add home button">
+					</span> <span class="add-room-details">
+						<div class="input-add-home input-field">
+							<input type="text" name="fname" id="fname"
+								placeholder="First Name">
+						</div>
+						<div class="input-add-home input-field">
+							<input type="text" name="lname" id="lname"
+								placeholder="Last Name">
+						</div>
+
+						<div class="input-add-home input-field">
+							<input type="email" name="email" id="email" placeholder="Email">
+						</div>
+
+						<div class="input-add-home input-field">
+							<input type="password" placeholder="Password" id="password"
+								name="password">
+						</div>
+
+						<div class="input-add-home input-field">
+							<input type="password" placeholder="Confirm Password"
+								id="cpassword" name="cpassword">
+						</div>
+				</div>
+				</span>
+			</div>
+			<button class="add-btn" style="top: 70%;" name="add-home-btn"
+				type="submit" onclick="addhome();">Add Admin Now</button>
+		</form>
+	</div>
+
+
 	<!-- 	<div class="footer"> -->
 	<!-- 		<!-- <h5 style="text-align: center; font-family: Hei; ">User Admin - 2019 © DOMISEP all rights reserved!</h5>-->
 	<!-- 	</div> -->

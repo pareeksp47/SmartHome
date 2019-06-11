@@ -344,6 +344,15 @@ form .submit:hover {
 	cursor: pointer;
 }
 
+.input-add-home{
+	padding: 5px !important;
+    margin: 10px !important;
+    margin-left: 30px !important;
+}
+
+.input-add-home input {
+	width: 265px !important;
+}
 .input-field {
 	/* padding: 10px;*/
 	text-align: left;
