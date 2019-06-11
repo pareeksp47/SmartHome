@@ -106,14 +106,12 @@ label{
 }
 
 .domisep{
-	font-size: 16px;
-/* 	color: #10A976;	 */
+	font-size: 17px;
 	color: navajowhite; 
-/* 	font-family: 'Arizonia'; */
+	font-family: 'Cherry Swash';
 	margin: 5px !important;
 	font-weight: normal !important;
-	font-family: 'Kaushan Script';
-	letter-spacing: 1.5px;
+/* 	letter-spacing: 0.5px; */
 }
 .icon {
 	width: 55px;
@@ -129,6 +127,10 @@ label{
   width: 70px;
   height: 70px;
   border-radius: 50%;
+}
+
+.nav-icon{
+	margin-right: 10px;
 }
 
 /* Top navbar,Logo CSS */
@@ -206,6 +208,19 @@ label{
 	margin: 20px;
 }
 
+.no_Apt{
+	    width: 60%;
+    height: 150px;
+    border: 1px solid;
+    color: white;
+    padding: 15px;
+    padding-top: 60px;
+    margin: 12%;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
 /* Home and support content common CSS */
 /* #home-content, #support-content, #faq-content, #profile-content {
 	margin-top: 60px;
@@ -257,6 +272,7 @@ label{
 	/* border: solid 2px green; */
 	border-radius: 5px;
 }
+
 
 /* FAQ block CSS */
 .faq-block {
@@ -594,7 +610,6 @@ form .submit:hover {
 }
 
 .sidenav a:hover {
-	background-color: #f1f1f1;
 	color: #3A3A3A;
 }
 
@@ -610,6 +625,7 @@ form .submit:hover {
 
 /* Sensor S sliders */
 .switch {
+	margin-top: 35px;
 	position: relative;
 	display: inline-block;
 	width: 45px;
@@ -665,8 +681,10 @@ input:checked+.slider:before {
 
 .slider.round {
 	height: 28px;
-	width: 52px;
-	border-radius: 30px;
+    width: 52px;
+    border-radius: 30px;
+    padding-top: 20px;
+    margin-top: 0px;
 }
 
 .slider.round:before {
