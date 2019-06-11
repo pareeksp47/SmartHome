@@ -88,7 +88,9 @@
 				<div id="home-block" class="addHomeBlock custom_block"
 					style="display: block;">
 					<div class="thumbnail">
-						<div class="addHomeHeading"><%=apt.getName() %></div>
+					
+						<div class="addHomeHeading"><%=apt.getName() %>
+						<img src="images/del_home_icon.png" style="width: 50px;float: right;padding-bottom: 5px;height: 50px;margin-top: -10px;"></div>
 					
 						<div style="display: flex; flex-wrap: wrap;">
 							<% for(Room room : apt.getRooms()){ %>
@@ -120,9 +122,10 @@
 									</div>
 									<%} %>
 									<div class="sensor-display"
-										onclick="document.getElementById('addSensorModal').style.display='block'; getroomid(<%=room.getId()%>)">
+										onclick="document.getElementById('addSensorModal').style.display='block',  getroomid(<%=room.getId()%>);">
 										<img src="images/add-sensor-alt.png" alt="Add home button"
-											style="margin: 15px;" width="50" height="50"> <span>
+											style="margin: 15px;" width="50" height="50"> 
+											<span>
 											Add Sensor</span>
 									</div>
 								</div>
@@ -131,8 +134,7 @@
 							<div class="add-home-temp">
 								<div
 									style="width: 250px; height: 200px; background: white; display: inline-flex;">
-									, <a href="javascript:void(0)" id="add_homeid" name=''
-										onclick="document.getElementById('addRoomModal').style.display='block'; gethomeid(<%=apt.getId()%>)">
+								<a href="javascript:void(0)" onclick="document.getElementById('addRoomModal').style.display='block', gethomeid(<%=apt.getId()%>)">
 										<span> <img class="add-room"
 											src="images/add-room-block.png" alt="Add home button">
 									</span> Add new room
@@ -174,7 +176,11 @@
 							<div class="input-field">
 								<input type="text" placeholder="Home Name" name="name" id="homename"
 									required>
+
 							</div>		
+
+							</div>	
+
 							<div class="input-field">
 								<input type="text" placeholder="Home Number" name="houseName" id="name"
 									required>
