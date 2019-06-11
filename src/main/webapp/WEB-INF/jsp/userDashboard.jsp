@@ -113,7 +113,7 @@
 											class="add-room" src="images/<%=room.getRoomType()%>.png"
 											alt="Add home button">
 									</span><%=room.getName()%>
-									</a> <a style="margin-top: 5px; margin-right: 4px;"><img
+									</a> <a style="margin-top: 5px; margin-right: 4px;" href="/smarthome/deleteRoom?id=<%=room.getId() %>"><img
 										src="https://img.icons8.com/small/16/000000/cancel.png"
 										style="width: 12px; height: 12px"></a>
 								</div>
@@ -129,7 +129,7 @@
 											style="text-overflow: ellipsis; width: 100px; overflow: hidden; white-space: nowrap;"><%=sensor.getName()%></span>
 										<div>
 											<a
-												style="margin: -6px; padding: 9px; float: right; height: 15px; width: 32px;"><img
+												style="margin: -6px; padding: 9px; float: right; height: 15px; width: 32px;" href="/smarthome/deleteSensor?id=<%=sensor.getId()%>"><img
 												src="https://img.icons8.com/windows/32/000000/delete-column.png"></a>
 											<label class="switch"> <input type="checkbox"
 												id="s<%=sensor.getId()%>"
