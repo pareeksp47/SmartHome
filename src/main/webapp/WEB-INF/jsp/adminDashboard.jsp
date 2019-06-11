@@ -15,6 +15,7 @@
 	 response.setHeader("Pragma", "no-cache");
 	 response.setDateHeader("Expires", 0);
 %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -43,6 +44,9 @@
 			}
 		}
 	}
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	});
 </script>
 </head>
 <body>
@@ -104,29 +108,27 @@
 			<input type="text" id="myInput" onkeyup="myFunction()"
 				placeholder="Search Name..." style="">
 			<div class="addAdminButton">
-				<span> <a href="#"
+				<span> <a href="#" data-toggle="tooltip"
+					title="Create Admin Here!!"
 					onclick="document.getElementById('addAdminModal').style.display='block'">
 						<img class="add-home"
 						src="https://img.icons8.com/metro/52/000000/add-user-male.png"
 						alt="Add home button"
 						style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: -10px;"></span>
-				<span> Create Admin </span> </a>
+				<!-- 				<span> Create Admin </span>  -->
+				</a>
+			</div>
+			<div style="margin-left: 1%" class="addAdminButton">
+				<span> <a href="#" data-toggle="tooltip"
+					title="Edit Admin Here!!"
+					onclick="document.getElementById('editAdminModal').style.display='block'">
+						<img class="add-home" src="images\edit-admin.png"
+						alt="Edit Admin button"
+						style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: -10px;"></span>
+				<!-- 				<span> Edit Admin </span> -->
+				</a>
 			</div>
 		</div>
-		<!-- when user manipulate database show messages here -->
-
-		<!--start: pagination script -->
-		<%-- <%@page import="java.sql.DriverManager"%> --%>
-		<%-- 			<%@page import="java.sql.ResultSet"%> --%>
-		<%-- 			<%@page import="java.sql.Statement"%> --%>
-		<%-- 			<%@page import="java.sql.Connection"%> --%>
-
-		<%-- 			<% --%>
-
-
-		<%-- 			%> --%>
-
-		<!--end: pagination script -->
 
 		<table id="myTable">
 			<tr class="header">
@@ -170,9 +172,8 @@
 				</td>
 				<td style="text-align: center;"><a href="#"
 					onclick="document.getElementById('addAdminModal').style.display='block'">
-						<img class="del-user" src="images\edit-admin.png">
-				</a> <a><img class="del-user" src="images\del_user_icon.png"></a>
-					<%-- 				<a href="delete.jsp?id=<%=userList.get(i).getId()%>" --%>
+						<img class="del-user" src="images\del_user_icon.png">
+				</a> <%-- 				<a href="delete.jsp?id=<%=userList.get(i).getId()%>" --%>
 					<!-- 					class="del_btn">Delete</a> --></td>
 			</tr>
 			<%
@@ -202,44 +203,45 @@
 
 	<div id="addAdminModal" class="add-home-modal">
 		<form class="add-modal-content animate"
-			style="height: 80%; width: 40%; padding-top: 0px;"
+			style="height: 80%; width: 40%; padding-top: 0px; padding-left: 0px;"
 			action="saveAdminDetails" method="POST">
 			<div>
 				<span style="text-align: center;" class="modal-title input-field">
-					Create Admin </span> <span class="close" style="right: 28%; top: 7%;"
+					Create Admin </span> <span class="close" style="right: 30%; top: 7%;"
 					onclick="document.getElementById('addAdminModal').style.display='none'">&times;</span>
 			</div>
 			<div class="container">
 				<div style="display: inline-flex;">
-<!-- 					<span class="add-room-img"> <img class="add-room" -->
-<!-- 						id="add-room-image" src="images/add-home-block.jpg" -->
-<!-- 						alt="Add home button"> -->
-<!-- 					</span> -->
-					 <span class="add-room-details">
+					<!-- 					<span class="add-room-img"> <img class="add-room" -->
+					<!-- 						id="add-room-image" src="images/add-home-block.jpg" -->
+					<!-- 						alt="Add home button"> -->
+					<!-- 					</span> -->
+					<span class="add-room-details">
 						<div class="input-add-home input-field">
 							<label>First Name </label> <input type="text" name="fname"
-								id="fname" style="margin-left: 76px;" placeholder="First Name">
+								id="fname" style="margin-left: 74px;" placeholder="First Name">
 						</div>
 						<div class="input-add-home input-field">
-							<label>Last Name </label>
-							 <input type="text" style="margin-left: 76px;"  name="lname"
-								id="lname" placeholder="Last Name">
-						</div>
-
-						<div class="input-add-home input-field">
-						<label>Email </label>
-							<input type="email" style="margin-left: 114px;" name="email" id="email" placeholder="Email">
+							<label>Last Name </label> <input type="text"
+								style="margin-left: 76px;" name="lname" id="lname"
+								placeholder="Last Name">
 						</div>
 
 						<div class="input-add-home input-field">
-						<label>Password </label>
-							<input type="password" style="margin-left: 85px;" placeholder="Password" id="password"
+							<label>Email </label> <input type="email"
+								style="margin-left: 114px;" name="email" id="email"
+								placeholder="Email">
+						</div>
+
+						<div class="input-add-home input-field">
+							<label>Password </label> <input type="password"
+								style="margin-left: 85px;" placeholder="Password" id="password"
 								name="password">
 						</div>
 
 						<div class="input-add-home input-field">
-						<label>Confirm Password </label>
-							<input type="password" style="margin-left: 15px;" placeholder="Confirm Password"
+							<label>Confirm Password </label> <input type="password"
+								style="margin-left: 15px;" placeholder="Confirm Password"
 								id="cpassword" name="cpassword">
 						</div>
 				</div>
@@ -253,46 +255,44 @@
 
 	<div id="editAdminModal" class="add-home-modal">
 		<form class="add-modal-content animate"
-			style="height: 70%; width: 40%; padding-top: 10px;"
+			style="height: 80%; width: 40%; padding-top: 0px; padding-left: 0px;"
 			action="saveAdminDetails" method="POST">
 			<div>
 				<span style="text-align: center;" class="modal-title input-field">
-					Edit Admin </span> <span class="close" style="right: 28%; top: 12%;"
-					onclick="document.getElementById('addAdminModal').style.display='none'">&times;</span>
+					Edit Profile </span> <span class="close" style="right: 30%; top: 7%;"
+					onclick="document.getElementById('editAdminModal').style.display='none'">&times;</span>
 			</div>
 			<div class="container">
 				<div style="display: inline-flex;">
-					<span class="add-room-img"> <img class="add-room"
-						id="add-room-image" src="images/add-home-block.jpg"
-						alt="Add home button">
-					</span> <span class="add-room-details">
+					<span class="add-room-details">
 						<div class="input-add-home input-field">
-							<input type="text" name="fname" id="fname"
-								placeholder="First Name">
-						</div>
-						<div class="input-add-home input-field">
-							<input type="text" name="lname" id="lname"
-								placeholder="Last Name">
+							<label>First Name</label> <input type="text" name="first_name"
+								 style="margin-left: 74px;" value="<%out.println(user.getFirstName());%>">
 						</div>
 
 						<div class="input-add-home input-field">
-							<input type="email" name="email" id="email" placeholder="Email">
+							<label>Last Name</label> <input type="text" name="last_name"
+								style="margin-left: 76px;"  value="<%out.println(user.getLastName());%>">
+						</div>
+						<div class="input-add-home input-field">
+							<label>Email</label> <input type="text" name="email"
+								style="margin-left: 114px;" value="<%out.println(user.getEmail());%>">
 						</div>
 
 						<div class="input-add-home input-field">
-							<input type="password" placeholder="Password" id="password"
-								name="password">
+							<label>New Password</label> <input type="password" placeholder=""
+								style="margin-left: 45px;" name="pswd">
 						</div>
 
 						<div class="input-add-home input-field">
-							<input type="password" placeholder="Confirm Password"
-								id="cpassword" name="cpassword">
+							<label>Confirm Password</label> <input type="password"
+								style="margin-left: 15px;" placeholder="" name="conpswd">
 						</div>
 				</div>
 				</span>
 			</div>
-			<button class="add-btn" style="top: 70%;" name="add-home-btn"
-				type="submit" onclick="addhome();">Add Admin Now</button>
+			<button class="add-btn" style="top: 78%;" name="add-home-btn"
+				type="submit" onclick="addhome();">Save</button>
 		</form>
 	</div>
 

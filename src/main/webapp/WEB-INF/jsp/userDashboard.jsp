@@ -24,10 +24,10 @@
 	} else {
 		user = (User) reqSession.getAttribute("user");
 	}
-	
+
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	 response.setHeader("Pragma", "no-cache");
-	 response.setDateHeader("Expires", 0);
+	response.setHeader("Pragma", "no-cache");
+	response.setDateHeader("Expires", 0);
 %>
 
 <html>
@@ -41,6 +41,12 @@
 <link rel="stylesheet" type="text/css"
 	href="/smarthome/css/userDashboard.css">
 <jsp:include page="basic.jsp" />
+<script type="text/javascript">
+$(document).ready(function(){
+	  $('[data-toggle="tooltip"]').tooltip();   
+	});
+</script>
+
 </head>
 <body>
 	<%-- <jsp:include page="header.jsp" /> --%>
@@ -56,9 +62,8 @@
 		<div class="profile_part">
 
 
-			<% 				
+			<%
 				if (null != user.getGender() && user.getGender().equals("Male")) {
-
 			%>
 			<img src="images\avatar_male.png" alt="Avatar" class="avatar">
 			<%
@@ -101,10 +106,12 @@
 					out.print(user.getFirstName());
 				%>, Welcome to your smart home!
 				</h1>
+
 				<div class="addHomeButton">
 					<a href="javascript:void(0)"
-						onclick="document.getElementById('addHomeModal').style.display='block'">
-						<span> <img class="add-home" src="images\add-home.png"
+						onclick="document.getElementById('addHomeModal').style.display='block'"
+						data-toggle="tooltip" title="Click here to Add Home!!"> <span>
+							<img class="add-home" src="images\add-home.png"
 							alt="Add home button"
 							style="width: 40px; height: 40px; margin-right: 5px; margin-bottom: -15px;">
 					</span> <!-- 					 <span> Add new home </span> -->
@@ -147,12 +154,14 @@
 								<div id="mySidenav" class="sidenav">
 									<%
 										for (Sensor sensor : room.getSensors()) {
-											String status = sensor.getSensorType().equals("light") == true ?  sensor.getStatus().equals("1") == true ? 
-													sensor.getSensorType()+"_on" : sensor.getSensorType()+"_off" : sensor.getSensorType();
-											
+													String status = sensor.getSensorType().equals("light") == true
+															? sensor.getStatus().equals("1") == true
+																	? sensor.getSensorType() + "_on"
+																	: sensor.getSensorType() + "_off"
+															: sensor.getSensorType();
 									%>
 									<div class="sensor-display">
-										<img id="img<%=sensor.getId()%>" src="images/<%= status%>.png"
+										<img id="img<%=sensor.getId()%>" src="images/<%=status%>.png"
 											alt="Add home button" style="margin: 5px; margin-top: 15px;"
 											width="50" height="50"> <span
 											style="text-overflow: ellipsis; width: 100px; overflow: hidden; white-space: nowrap;"><%=sensor.getName()%></span>
