@@ -136,6 +136,12 @@ public class UserDashboardRepository {
 
 	public void deleteApartment(int id) {
 		
+		
+		
+		jdbcTemplate.update("delete from sensor where room_id in (select id from room where apartment_id = ?)",id);
+		
+		jdbcTemplate.update("DELETE from room where apartment_id = ? ", id);
+		
 		jdbcTemplate.update("DELETE from apartment where id = ? ", id);
 		
 	}
@@ -143,6 +149,8 @@ public class UserDashboardRepository {
 	
 	public void deleteRoom(int id) {
 			
+		jdbcTemplate.update("delete from sensor where room_id = ? ",id);
+		
 			jdbcTemplate.update("DELETE from Room where id = ? ", id);
 			
 		}
