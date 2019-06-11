@@ -6,7 +6,7 @@
 		<h4>
 			<a href="/smarthome/" class="homeicon"> <img class="icon"
 				src="/smarthome/images/logo.png" />&nbsp;&nbsp;<label
-				class="domisep">SMART HOME </label>
+				class="domisep">Smart Home </label>
 			</a>
 		</h4>
 	</div>

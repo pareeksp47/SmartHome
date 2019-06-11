@@ -32,7 +32,7 @@
 <title>UserDashboard</title>
 <link href='https://fonts.googleapis.com/css?family=Arbutus Slab'
 	rel='stylesheet'>
-<link href='https://fonts.googleapis.com/css?family=Kaushan Script'
+<link href='https://fonts.googleapis.com/css?family=Cherry Swash'
 	rel='stylesheet'>
 <link rel="stylesheet" type="text/css"
 	href="/smarthome/css/userDashboard.css">
@@ -50,7 +50,13 @@
 
 		</div>
 		<div class="profile_part">
-			<img src="images\avatar_image.png" alt="Avatar" class="avatar">
+			<%-- 				<% --%>
+			<!-- // 					if(user.getGender()=='Male'){ -->
+			<%-- 					%> --%>
+			<img src="images\avatar_male.png" alt="Avatar" class="avatar">
+			<%-- 						<%} else{%> --%>
+			<!-- 						<img src="images\avatar_image.png" alt="Avatar" class="avatar"> -->
+			<%-- 						<%} %> --%>
 			<h2
 				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';">
 				<%
@@ -58,8 +64,15 @@
 				%>
 			</h2>
 		</div>
-		<a href="/smarthome/userDashboard">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a>
-		<a href="/smarthome/getFAQ">FAQ</a> <a href="/smarthome/logout">Logout</a>
+		<a href="#" style="padding: 10px;"><img class="nav-icon"
+			src="images\db-icon-nav.png">Dashboard</a> <a href="#"
+			style="padding: 10px;"><img class="nav-icon"
+			src="images\pro-icon-nav.png">Profile</a> <a href="#"
+			style="padding: 10px;"> <img class="nav-icon"
+			src="images\sup-icon-nav.png">Support
+		</a> <a href="./getFAQ" style="padding: 10px;"> <img class="nav-icon"
+			src="images\faq-icon-nav.png">FAQ
+		</a>
 	</div>
 	<div class="main">
 		<!-- Home content code  -->
