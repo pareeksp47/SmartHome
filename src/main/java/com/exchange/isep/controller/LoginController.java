@@ -73,7 +73,7 @@ public class LoginController {
 					 session.setAttribute("User", null);
 				 }
 				 session.invalidate();
-				 response.setHeader("Cache-Control", "private,no-store,no-cache");
+				 
 			 }
 		} catch (Exception e) {
 			System.out.println("Error :"+e);
