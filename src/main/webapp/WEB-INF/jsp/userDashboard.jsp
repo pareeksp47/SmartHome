@@ -55,8 +55,8 @@
 			<h2
 				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';"><% out.print(user.getFirstName()); %></h2>
 		</div>
-		<a href="#">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a>
-		<a href="./getFAQ">FAQ</a>
+		<a href="/smarthome/userDashboard">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a>
+		<a href="/smarthome/getFAQ">FAQ</a> <a href="/smarthome/logout">Logout</a>
 	</div>
 	<div class="main">
 		<!-- Home content code  -->

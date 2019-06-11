@@ -4,6 +4,7 @@
 package com.exchange.isep.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,27 @@ public class LoginController {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("user", user);
 			}
+		} catch (Exception e) {
+			System.out.println("Error :"+e);
+			result= "error";
+		}
+		return result;
+	}
+	
+	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		
+		String result = "redirect:/login";
+		try {
+			 HttpSession session =  request.getSession(false);
+			 if(null != session) {
+				 if(null != session.getAttribute("User")) {
+					 session.setAttribute("User", null);
+				 }
+				 session.invalidate();
+				 response.setHeader("Cache-Control", "private,no-store,no-cache");
+			 }
 		} catch (Exception e) {
 			System.out.println("Error :"+e);
 			result= "error";

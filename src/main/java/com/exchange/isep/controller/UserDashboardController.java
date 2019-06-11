@@ -268,7 +268,7 @@ public class UserDashboardController {
   }
 	 
 	 
-	 @RequestMapping(value="deleteRoom",method=RequestMethod.POST)
+	 @RequestMapping(value="deleteRoom",method=RequestMethod.GET)
 	 public String deleteRoom(@RequestParam(value="id") int id,
 			 HttpServletRequest request){
 
@@ -300,7 +300,7 @@ public class UserDashboardController {
   }
 	 
 	 
-	 @RequestMapping(value="deleteSensor",method=RequestMethod.POST)
+	 @RequestMapping(value="deleteSensor",method=RequestMethod.GET)
 	 public String deleteSensor(@RequestParam(value="id") int id,
 			 HttpServletRequest request){
 
