@@ -29,7 +29,7 @@
 				<p style="font-style: normal;color: #004d4d; font-size: 23px;">${listValue.faq}</p>
 			</h3>	
 				<% } else { %>
-				<h3><p style="font-style: italic;color:#F0FFF0;font-size: 20px;">&nbsp  ${listValue.faq}</p></h3>
+				<h3><p style="font-style: italic;color:#258e8e;font-size: 20px;">&nbsp  ${listValue.faq}</p></h3>
 			
 				<%} %>
 				<%data ++; %>

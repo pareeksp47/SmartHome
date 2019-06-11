@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp" />
+<jsp:include page="header_reg.jsp" />
 <br/>
 <div class="body">
  <div class="container" >
