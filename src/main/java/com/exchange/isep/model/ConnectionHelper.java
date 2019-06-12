@@ -12,7 +12,7 @@ public class ConnectionHelper {
 
 		try {
 			String myDriver = "com.mysql.jdbc.Driver";
-			String myUrl = "jdbc:mysql://localhost:3306/smarthome?useSSL=false";
+			String myUrl = "jdbc:mysql://localhost:3306/domisep?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			Class.forName(myDriver);
 			Connection conn = DriverManager.getConnection(myUrl, "root", "root");
 			return conn;

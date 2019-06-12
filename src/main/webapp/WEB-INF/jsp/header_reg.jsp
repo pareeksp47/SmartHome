@@ -10,6 +10,14 @@
 			</a>
 		</h4>
 	</div>
-
+	<div class="rightmenu">
+		<a href="javascript:void(0)" onclick="login()">Login</a> 
+			<!-- 		<form action="login"> -->
+		<!-- 			<button id="buttonone">LOGIN</button> -->
+		<!-- 		</form> -->
+		<!-- 		<form action="register"> -->
+		<!-- 			<button id="buttontwo">REGISTER</button> -->
+		<!-- 		</form> -->
+	</div>
 
 </div>
