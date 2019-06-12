@@ -53,6 +53,10 @@ public class LoginController {
 				
 				HttpSession session = request.getSession(true);
 				session.setAttribute("user", user);
+			}else {
+				
+				
+				result = "login?error=error";
 			}
 		} catch (Exception e) {
 			System.out.println("Error :"+e);
