@@ -67,7 +67,7 @@
 					out.print(user.getFirstName());
 				%>
 			</div>
-			<a class="logout" href="#">Logout</a>
+			<a class="logout" href="/smarthome/logout">Logout</a>
 		</div>
 	</div>
 	<!-- 	<div class="side-nav-admin-taskbar"> -->
