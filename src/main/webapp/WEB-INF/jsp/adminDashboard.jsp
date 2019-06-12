@@ -10,10 +10,10 @@
 	HttpSession reqSession = request.getSession(false);
 	User user = (User) reqSession.getAttribute("user");
 	ArrayList<User> userList = (ArrayList) reqSession.getAttribute("userList");
-	
+
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	 response.setHeader("Pragma", "no-cache");
-	 response.setDateHeader("Expires", 0);
+	response.setHeader("Pragma", "no-cache");
+	response.setDateHeader("Expires", 0);
 %>
 
 <html>
@@ -244,6 +244,16 @@
 								style="margin-left: 15px;" placeholder="Confirm Password"
 								id="cpassword" name="cpassword">
 						</div>
+						<div class="input-add-home input-field">
+							<label>Gender &nbsp</label> <label class="pass"> Male <input
+								type="radio"
+								style="height: 12px; width: 110px !important; position: relative; top: -42%;"
+								name="gender" id="male" value="male" checked>
+							</label> <label class="pass"> Female <input type="radio"
+								style="height: 12px; width: 110px !important; position: relative; top: -42%; margin-left: 20px;"
+								name="gender" id="female" value="female">
+							</label>
+						</div>
 				</div>
 				</span>
 			</div>
@@ -255,8 +265,8 @@
 
 	<div id="editAdminModal" class="add-home-modal">
 		<form class="add-modal-content animate"
-			style="height: 80%; width: 40%; padding-top: 0px; padding-left: 0px;"
-			action="saveAdminDetails" method="POST">
+			style="height: 85%; width: 40%; padding-top: 0px; padding-left: 0px;"
+			action="editAdminProfile" method="POST">
 			<div>
 				<span style="text-align: center;" class="modal-title input-field">
 					Edit Profile </span> <span class="close" style="right: 30%; top: 7%;"
@@ -266,17 +276,25 @@
 				<div style="display: inline-flex;">
 					<span class="add-room-details">
 						<div class="input-add-home input-field">
+							<label>ID</label> <input type="text" name="first_name"
+								style="margin-left: 140px;"
+								value="<%out.println(user.getId());%>">
+						</div>
+						<div class="input-add-home input-field">
 							<label>First Name</label> <input type="text" name="first_name"
-								 style="margin-left: 74px;" value="<%out.println(user.getFirstName());%>">
+								style="margin-left: 74px;"
+								value="<%out.println(user.getFirstName());%>">
 						</div>
 
 						<div class="input-add-home input-field">
 							<label>Last Name</label> <input type="text" name="last_name"
-								style="margin-left: 76px;"  value="<%out.println(user.getLastName());%>">
+								style="margin-left: 76px;"
+								value="<%out.println(user.getLastName());%>">
 						</div>
 						<div class="input-add-home input-field">
 							<label>Email</label> <input type="text" name="email"
-								style="margin-left: 114px;" value="<%out.println(user.getEmail());%>">
+								style="margin-left: 114px;"
+								value="<%out.println(user.getEmail());%>">
 						</div>
 
 						<div class="input-add-home input-field">
@@ -291,7 +309,7 @@
 				</div>
 				</span>
 			</div>
-			<button class="add-btn" style="top: 78%;" name="add-home-btn"
+			<button class="add-btn" style="top: 83%;" name="add-home-btn"
 				type="submit" onclick="addhome();">Save</button>
 		</form>
 	</div>
