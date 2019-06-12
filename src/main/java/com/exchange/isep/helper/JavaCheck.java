@@ -11,7 +11,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class JavaEmail {
+public class JavaCheck {
 
 	Properties emailProperties;
 	Session mailSession;
@@ -19,9 +19,9 @@ public class JavaEmail {
 
 	String emailHost = "smtp.gmail.com";
 	String emailPort = "587";// gmail's smtp port
-	String fromUser = "ramshasajid93@gmail.com";// your gmail id
-	String fromUserEmailPassword = "areebanameera";
-	String[] toEmails = { "ramshasajid93@gmail.com" };
+	String fromUser = "maylin.pinto96@gmail.com";// your gmail id
+	String fromUserEmailPassword = "MAYLIN.pinto1996";
+	String[] toEmails = { "maylin.pinto96@gmail.com" };
 
 	public void setMailServerProperties() {
 		emailProperties = System.getProperties();

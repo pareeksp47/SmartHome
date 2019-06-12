@@ -58,7 +58,7 @@
 		  
 		  <div class="col-sm-12">
 		  
-					<a id="forgotPassword" class="forgot-password" href="/smarthome/site/unauthorized/forgot-password.php">Forgot password?</a>
+					<a id="forgotPassword" class="forgot-password" href="forgotPassword">Forgot password?</a>
 		  </div>
      
 		     <div class="col-sm-12">
