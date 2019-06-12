@@ -42,7 +42,7 @@
 </head>
 <body>
 	<div class="main">
-		<div class="FAQHeading">My Profile</div>
+		<h1>My Profile</h1>
 		<c:out value="${sessionScope.message}" />
 		<%
 			request.getSession().removeAttribute("message");
