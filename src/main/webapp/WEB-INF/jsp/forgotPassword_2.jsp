@@ -1,30 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page session="false" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="com.exchange.isep.helper.JavaEmail"%>
+<%@page import="com.exchange.isep.model.User"%>
+<%@ page import="javax.mail.MessagingException"%>
+
+<%@ page import="com.exchange.isep.controller.AdminDashboardController"%>
+
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-  <link rel="stylesheet" href="css/login_styles_second.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create New Password</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/login_styles_second.css">
+    
+<!--     <link href="/smarthome/css/faq.css" rel="stylesheet" id="bootstrap-css"> -->
+<script src="/smarthome/js/validate.js" type="text/javascript"></script>
+
+
+</style>
 </head>
 <body>
-    <div class="bg-image"></div>
+
+<%
+	HttpSession reqSession = request.getSession(false);
+	User user = (User) reqSession.getAttribute("user");
+	
+	//ArrayList<User> userList = (ArrayList) reqSession.getAttribute("userList");
+
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	response.setHeader("Pragma", "no-cache");
+	response.setDateHeader("Expires", 0);
+%>
+<div class="bg-image"></div>
     <!-- <div class="header">
             <img src="Bigtree_logo.JPG" alt="Bigtree_logo" width="100" height="100"><h1> BIGTREE</h1>
         </div> -->
 
     <img src="images\logo.png" alt="Bigtree_logo">
 
-
     <div class="login">
         <h2>Create New Password</h2>
-        <form action="Forgot_Password_2.php" method="POST"> 
+        <form action="forgotPasswordChange" method="POST"> 
             <div class="login-parameters">
                  <div class="input-field">
-                    <!--<label for="name"><b>Email</b></label><br /> -->
-					<input type="email" value="maylin123@gmail.com" name="email" required>
+                   
+					<input type="email" value="<%out.print(request.getAttribute("email"));%>" name="email" required>
                 </div>
+                
+               
                 <div class="input-field">
                     <!-- <label for="psw"><b>Password</b></label><br /> -->
                     <input type="password" placeholder="New Password" name="pswd" required>
@@ -35,12 +61,8 @@
                 </div>
 
             </div>
-			<?php
-				if(isset($_SESSION['message']))
-				{
-					display_message($_SESSION['message']);
-				}
-			?>
+
+
 			
             <button class="signInBtn" type="submit" name="frgt_btn"> <!--onclick="show_confirm()" value="Show confirm box"--> Save</button>
 			
@@ -80,5 +102,8 @@
 <p>Copyright@<a href="#">2019</a></p>
 
 </div>
+
 </body>
-</html>
+
+
+</html> 

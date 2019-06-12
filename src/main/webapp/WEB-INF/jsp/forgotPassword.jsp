@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page session="false" %>
+  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ page import="com.exchange.isep.helper.JavaCheck"%>
+<%@page import="com.exchange.isep.model.User"%>
+<%@ page import="javax.mail.MessagingException"%>  
+    
+    
+    
+    
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +20,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/login_styles_second.css">
+    
+<!--     <link href="/smarthome/css/faq.css" rel="stylesheet" id="bootstrap-css"> -->
+<script src="/smarthome/js/validate.js" type="text/javascript"></script>
+
    
 </head>
 <body>
@@ -27,24 +41,42 @@
 
     <div class="login">
         <h2>Email Verification</h2>
-        <form action="Forgot_Password.php" method="POST"> 
-            <div class="login-parameters">
-                <div class="input-field">
-                    <!-- <label for="name"><b>Email</b></label><br /> -->
-					<p>Enter your Email ID</p>
-					<input id="email" type="text" placeholder="Email" name="email" required>
-                </div>
-             </div>
-			<?php
-				if(isset($_SESSION['message']))
-				{
-					display_message($_SESSION['message']);
-				}
-			?>
-			 
-            <button class="signInBtn" type="submit" name="frgt_btn">Confirm</button>
+<!--         <form action="Forgot_Password.php" method="POST">  -->
+<!--             <div class="login-parameters"> -->
+<!--                 <div class="input-field"> -->
+<!--                     <label for="name"><b>Email</b></label><br /> -->
+<!-- 					<p>Enter your Email ID</p> -->
+<!-- 					<input id="email" type="text" placeholder="Email" name="email" required> -->
+<!--                 </div> -->
+<!--              </div> -->
+<!-- 			<?php -->
 			
-			<div style="margin-top: 20px;"> Login/Register? <button class="clickBtn" style="width:auto;" id="signupBtn"><a href="index.php">Click here</a></button>
+			 
+			 
+			 
+			 
+			 
+			 
+			
+ 					<div class="main">
+ 					
+ 	
+		
+		 <form id="register-form" role="form" class="form" method="GET" 
+ 					action="forgotPassword_2">
+    <h3>Enter Your Email Below</h3>
+    
+  					 <input id="email" name="email" placeholder="Email address" class="form- 
+ 					  control"  type="email" required 	>
+  					<input name="recover-submit" class="form-control" 
+					   value="Get Password" type="submit">
+</form>
+<!--             <button class="signInBtn" type="submit" name="frgt_btn">Confirm</button> -->
+			
+			
+			
+			</div>
+			<div style="margin-top: 20px;"> Login/Register? <button class="clickBtn" style="width:auto;" id="signupBtn"><a href="login">Click here</a></button>
                 <!-- <button id="signupBtn" type="submit">Sign Up</button> -->
             </div>
 			
@@ -53,6 +85,40 @@
 	
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/smarthome/css/footer.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<div class="footer-main-div">
 
