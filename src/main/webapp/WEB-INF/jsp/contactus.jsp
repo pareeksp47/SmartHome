@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ page import="com.exchange.isep.helper.JavaEmail"%>
 <%@page import="com.exchange.isep.model.User"%>
 <%@ page import="javax.mail.MessagingException"%>
@@ -35,11 +37,9 @@
 		javaEmail.createEmailMessage(emailSubject, emailBody);
 		try {
 			javaEmail.sendEmail();
-			status = "success";
-			message = "Email sent Successfully!";
+			request.getSession().setAttribute("message", "Email sent sucessfully.");
 		} catch (MessagingException me) {
-			status = "error";
-			message = "Error in Sending Email!";
+			request.getSession().setAttribute("message", "Email could not be sent.");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -58,16 +58,20 @@
 </head>
 <body>
 	<div class="main">
-		<div class="FAQHeading">Contact Us</div>
-		<br>
+	<h1>Contact Us</h1>
+		<c:out value="${sessionScope.message}" />
+		<%
+			request.getSession().removeAttribute("message");
+		%>
 		<div class="support-form">
 			<form id="support-form" action="contactus" method="post"
 				onsubmit="return validateForm()" name="Form">
 				<input name="name" type="text" class="form-control"
-					placeholder="Your Name" required value="${user.getFirstName()} ${user.getLastName()}"/> <br> 
-				<input name="email"
-					type="text" class="form-control" placeholder="Your Email Address"
-					required  value="${user.getEmail()}" /> <br>
+					placeholder="Your Name" required
+					value="${user.getFirstName()} ${user.getLastName()}" disabled /> <br>
+				<input name="email" type="text" class="form-control"
+					placeholder="Your Email Address" required
+					value="${user.getEmail()}" disabled /> <br>
 				<textarea name="message" class="form-control" placeholder="Message"
 					rows="4" required></textarea>
 				<br> <input type="submit" class="form-control submit"

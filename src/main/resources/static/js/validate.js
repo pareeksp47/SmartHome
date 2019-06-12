@@ -61,12 +61,12 @@ let validateForm = function (){
 	
 	let email = document.forms["Form"]["email"].value;
 	let name = document.forms["Form"]["name"].value;
-	let letter= /^[a-zA-Z]+$/;
-	if(!name.match(letter))
-	{
-		alert("Please enter only alphabets for name");
-		return false;
-	}
+//	let letter= /^[a-zA-Z]+$/;
+//	if(!name.match(letter))
+//	{
+//		alert("Please enter only alphabets for name");
+//		return false;
+//	}
 	let check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	if(!check.test(email))
 	{
