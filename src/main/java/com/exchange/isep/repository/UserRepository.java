@@ -47,8 +47,8 @@ public class UserRepository {
      */
     public void addCustomer(User user) {
 
-        jdbcTemplate.update("INSERT INTO users(first_name,last_name, email, password, status, user_role, created_on) VALUES (?,?,?,?,?,?,?)",
-                user.getFirstName(), user.getLastName(), user.getEmail(),user.getPassword(),user.isStatus(),user.getUserRole(),user.getCreatedOn());
+        jdbcTemplate.update("INSERT INTO users(first_name,last_name, email, password, status, user_role, created_on,gender) VALUES (?,?,?,?,?,?,?,?)",
+                user.getFirstName(), user.getLastName(), user.getEmail(),user.getPassword(),user.isStatus(),user.getUserRole(),user.getCreatedOn(),user.getGender());
 
     }
     

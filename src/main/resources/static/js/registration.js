@@ -3,6 +3,9 @@ $('#submit').click(function(event) {
 	var flag = validateFields();
 	if (!flag) {
 		event.preventDefault(event);
+	}else{
+		
+		$('#form1').submit();
 	}
 
 });
@@ -15,7 +18,7 @@ $('#submit').click(function(event) {
 //
 //});
 
-validationCheck = function validateFields(event) {
+function validateFields(event) {
 	if (!$('#fname').val()) {
 		setErrorMessage("Please enter first name");
 		return false;
@@ -71,13 +74,14 @@ validationCheck = function validateFields(event) {
 
 	}
 
-	if (($('#password').val() && $('#cpassword').val())
+	return true;
+	/*if (($('#password').val() && $('#cpassword').val())
 			&& ($('#password').val() != ($('#cpassword').val()))) {
 		setErrorMessage("Passwords enterd do not match");
 		return false;
 	} else {
 		return true;
-	}
+	}*/
 
 }
 

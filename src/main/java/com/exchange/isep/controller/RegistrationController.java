@@ -6,6 +6,7 @@ package com.exchange.isep.controller;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +46,10 @@ public class RegistrationController {
         String userRole =  "Customer";
     	User user = new User(0, firstName, lastName, email, createdOn, status, userRole, password,gender);
     	userRepository.addCustomer(user);
-        return "userDashboard";
+    	
+    	//HttpSession session = request.getSession(true);
+		//session.setAttribute("user", user);
+        return "redirect:/login";
     }
     
     @RequestMapping(value = "/saveAdminDetails", method = RequestMethod.POST)
