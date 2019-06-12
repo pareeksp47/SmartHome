@@ -214,7 +214,7 @@ $(document).ready(function(){
 				<%
 					if (details.apartments.size() == 0) {
 				%>
-				<div>No apartment added to your profile !!</div>
+				<div class="no_Apt">No apartment added to your profile !!</div>
 				<%
 					}
 				%>
