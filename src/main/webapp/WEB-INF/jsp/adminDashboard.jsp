@@ -170,8 +170,7 @@
 						out.println(userList.get(i).getUserRole());
 					%>
 				</td>
-				<td style="text-align: center;"><a href="#"
-					onclick="document.getElementById('addAdminModal').style.display='block'">
+				<td style="text-align: center;"><a href="/smarthome/deleteUser?id=<%=userList.get(i).getId()%>">
 						<img class="del-user" src="images\del_user_icon.png">
 				</a> <%-- 				<a href="delete.jsp?id=<%=userList.get(i).getId()%>" --%>
 					<!-- 					class="del_btn">Delete</a> --></td>
@@ -203,7 +202,7 @@
 
 	<div id="addAdminModal" class="add-home-modal">
 		<form class="add-modal-content animate"
-			style="height: 80%; width: 40%; padding-top: 0px; padding-left: 0px;"
+			style="height: 87%; width: 40%; padding-top: 0px; padding-left: 0px;"
 			action="saveAdminDetails" method="POST">
 			<div>
 				<span style="text-align: center;" class="modal-title input-field">
@@ -257,7 +256,7 @@
 				</div>
 				</span>
 			</div>
-			<button class="add-btn" style="top: 78%;" name="add-home-btn"
+			<button class="add-btn" style="top: 86%;" name="add-home-btn"
 				type="submit" onclick="addhome();">Add Admin Now</button>
 		</form>
 	</div>
