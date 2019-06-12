@@ -89,9 +89,9 @@
 		 	              <label class="pass">Gender &nbsp</label></div>
 				 <div class="col-xs-4"> 
 				  <label class="pass">
-			             Male  <input type="radio" name="gender" id="male" value="male"  checked>  </label>
+			             Male  <input type="radio" name="gender" id="male" value="Male"  checked>  </label>
 			             <label class="pass"> 
-			             Female  <input type="radio" name="gender" id="female" value="female" > </label>
+			             Female  <input type="radio" name="gender" id="female" value="Female" > </label>
 				 </div> 
 				
           </div> 
