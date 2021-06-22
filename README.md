@@ -29,6 +29,7 @@ Schema
 
 Technology stack
 -------------------
+
 |  Title                        | Name                               |  
 | ------------------------------| ---------------------------------- |  
 | **FRAMEWORKS**                | Spring Boot, Maven                 |  
@@ -37,4 +38,9 @@ Technology stack
 | **WEBSERVER**                 | Apache Tomcat                      |  
 | **FROND-END TECHNOLOGIES**    | JSP, HTML, CSS, Bootstrap, JQuery  |  
 | **Version Control tool**      | Git                                |  
+
+Project requirements
+-----------------------
+
+It was mandated to use JAVA, JSP, Mysql for the development of this project.
 
