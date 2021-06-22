@@ -12,7 +12,7 @@ Use case
 Overall Flow 
 -------------
 
-![alt text](https://github.com/pareeksp47/SmartHome/blob/develop/src/main/resources/static/images/OverallFlow.PNG?raw=true)
+![alt text](https://github.com/pareeksp47/SmartHome/blob/develop/src/main/resources/static/images/OverallFlow.png?raw=true)
 
 
 Architecture 
