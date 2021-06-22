@@ -25,3 +25,15 @@ Schema
 -------------
 
 ![alt text](https://github.com/pareeksp47/SmartHome/blob/develop/src/main/resources/static/images/schema.PNG?raw=true)
+
+
+Technology stack
+-------------
+
+| ------------------------------| ----------------------------------|
+| **FRAMEWORKS**                | Spring Boot, Maven                |
+| **PROGRAMMING LANGUAGES **    | Java, Javascript                  |
+| **DATABASE**                  | Mysql                             |
+| **WEBSERVER**                 | Apache Tomcat                     |
+| **FROND-END TECHNOLOGIES**    | JSP, HTML, CSS, Bootstrap, JQuery |
+| **Version Control tool**      | Git                               |
