@@ -28,12 +28,12 @@ Schema
 
 
 Technology stack
--------------
+-------------------
 
-| ------------------------------| ----------------------------------|
-| **FRAMEWORKS**                | Spring Boot, Maven                |
-| **PROGRAMMING LANGUAGES **    | Java, Javascript                  |
-| **DATABASE**                  | Mysql                             |
-| **WEBSERVER**                 | Apache Tomcat                     |
-| **FROND-END TECHNOLOGIES**    | JSP, HTML, CSS, Bootstrap, JQuery |
-| **Version Control tool**      | Git                               |
+| ------------------------------| ---------------------------------- |
+| **FRAMEWORKS**                | Spring Boot, Maven                 |
+| **PROGRAMMING LANGUAGES **    | Java, Javascript                   |
+| **DATABASE**                  | Mysql                              |
+| **WEBSERVER**                 | Apache Tomcat                      |
+| **FROND-END TECHNOLOGIES**    | JSP, HTML, CSS, Bootstrap, JQuery  |
+| **Version Control tool**      | Git                                |
