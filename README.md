@@ -29,7 +29,7 @@ Schema
 
 Technology stack
 -------------------
-
+|  Title                        | Name                               |  
 | ------------------------------| ---------------------------------- |  
 | **FRAMEWORKS**                | Spring Boot, Maven                 |  
 | **PROGRAMMING LANGUAGES **    | Java, Javascript                   |  
