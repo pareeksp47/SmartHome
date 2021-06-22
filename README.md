@@ -32,7 +32,7 @@ Technology stack
 |  Title                        | Name                               |  
 | ------------------------------| ---------------------------------- |  
 | **FRAMEWORKS**                | Spring Boot, Maven                 |  
-| **PROGRAMMING LANGUAGES **    | Java, Javascript                   |  
+| **PROGRAMMING LANGUAGES**     | Java, Javascript                   |  
 | **DATABASE**                  | Mysql                              |  
 | **WEBSERVER**                 | Apache Tomcat                      |  
 | **FROND-END TECHNOLOGIES**    | JSP, HTML, CSS, Bootstrap, JQuery  |  
