@@ -7,4 +7,21 @@ The scope of the project is to provide a smart home management platform for the 
 Use case 
 -------------
 
-![alt text](https://github.com/[pareeksp47]/[SmartHome]/blob/develop/src/main/resources/usecase.jpg?raw=true)
+![alt text](https://github.com/pareeksp47/SmartHome/blob/develop/src/main/resources/static/images/usecase.PNG?raw=true)
+
+Overall Flow 
+-------------
+
+![alt text](https://github.com/pareeksp47/SmartHome/blob/develop/src/main/resources/static/images/OverallFlow.PNG?raw=true)
+
+
+Architecture 
+-------------
+
+![alt text](https://github.com/pareeksp47/SmartHome/blob/develop/src/main/resources/static/images/architecture.PNG?raw=true)
+
+
+Schema
+-------------
+
+![alt text](https://github.com/pareeksp47/SmartHome/blob/develop/src/main/resources/static/images/schema.PNG?raw=true)
