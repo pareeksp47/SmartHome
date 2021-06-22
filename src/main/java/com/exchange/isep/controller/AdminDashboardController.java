@@ -24,90 +24,73 @@ import com.exchange.isep.repository.UserDashboardRepository;
 import com.exchange.isep.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * 
+ * @author Pareek
+ * Admin dashboard is used for handling/managing the different user access to the application
+ *  
+ */
 @Controller
 public class AdminDashboardController {
 
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private ObjectMapper mapper;
+	/**
+	 * @api -  adminDashboard
+	 * 
+	 * @param http request
+	 * @return if a valid request returns all the list of users available/accessing this application.
+	 */
 	@RequestMapping({ "/adminDashboard" })
 	public String adminDashboard(HttpServletRequest request) {
 
+		// final result formation
 		String result = "";
 		try {
 
+			// return the current session for this request
 			HttpSession session = request.getSession(false);
-			if(null != session) {
-
+			
+			// if session is null, means user needs to login
+			if(null == session) {
+				result = "login";
+				
+			}else {
+				// if session is present get user details from session
 				User user = (User) session.getAttribute("user");
 			
-			//User user = new User(0, result, result, result, null, false, result, result);
-				if(null != user) {
-					
+				// validate user obj, if null return to login.
+				if(null == user) {
+					result = "login";
+				}else {
+					// get all user from repository.
 					List<User> userList = userRepository.findAll();
-									
-					ObjectMapper mapper = new ObjectMapper();
+							
+					
 					UserListDetails userListDetails = new UserListDetails();
-					userListDetails.userList = userList;
-					result = mapper.writeValueAsString(userList);
+					userListDetails.users = userList;
+		
+					// add the users to the session
 					session.setAttribute("userList", userList);
+					
+					// result set to admin dashborad
 					result = "adminDashboard";
 					
-				}else {
-					result = "error";
 				}
-			}
-			else {
-				result = "login";
 			}
 			
 		} catch (Exception e) {
-			System.out.println("Error ____________________-  "+result);
-			e.printStackTrace();
+			System.out.println("Error occured while accessing Admin dashboard "+e);
 			result = "error";
 		}
-
+		System.out.println("Admin controller dashboard access response : "+ result);
 		return result;
 	}
 
 
-//	@RequestMapping(value="/saveAdminDetails", method = RequestMethod.GET)
-//	@ResponseBody
-//	public String adminDashboardData(@RequestParam(value = "id") String id,
-//			HttpServletRequest request) {
-//
-//		String result = "";
-//		try {
-//
-//			HttpSession session = request.getSession(false);
-////			if(null != session) {
-//
-//				User user = (User) session.getAttribute("user");
-//				if(null != user) {
-//					
-//					List<User> userList = userRepository.findAll();
-//									
-//					ObjectMapper mapper = new ObjectMapper();
-//					UserListDetails userListDetails = new UserListDetails();
-//					userListDetails.userList = userList;
-//					result = mapper.writeValueAsString(userList);
-//					
-//				}else {
-//					result = "error";
-//				}
-////			}
-////			else {
-////				result = "login";
-////			}
-//			
-//		} catch (Exception e) {
-//			System.out.println("Error : " + e);
-//			result = "error";
-//		}
-//
-//		return result;
-//	}
-//	
 	@GetMapping({ "/createAdmin" })
 	public String createAdmin(Model model) {
 		return "createAdmin";
@@ -125,6 +108,12 @@ public class AdminDashboardController {
 
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @param http request
+	 * @return
+	 */
 	@RequestMapping(value="deleteUser",method=RequestMethod.GET)
 	 public String deleteUser(@RequestParam(value="id") int id,
 			 HttpServletRequest request){
@@ -132,15 +121,20 @@ public class AdminDashboardController {
 			String result = "";
 			
 			try {
-			HttpSession session =  request.getSession();
+				// return the current session for this request
+			HttpSession session =  request.getSession(false);
+			
+			// if session is null, means user needs to login
 			if(null == session) {
 				result = "login";
 			}else {
+				
 				User user = (User)session.getAttribute("user");
+				
+				// validate user obj, if null return to login.
 				if(null == user) {
 					result = "login";
-				}else {
-					
+				}else{
 					
 					userRepository.deleteUser(id);
 					result =  "redirect:/adminDashboard";
@@ -154,7 +148,6 @@ public class AdminDashboardController {
 			
 			return result;
  }
-	//updating admin's password
 	@RequestMapping(value="editAdminProfile",method=RequestMethod.POST)
 	 public String updateUser(@RequestParam(value="email") String email, @RequestParam(value="pswd") String password,
 			 HttpServletRequest request){
@@ -162,7 +155,7 @@ public class AdminDashboardController {
 			String result = "";
 		
 			try {
-			HttpSession session =  request.getSession();
+			HttpSession session =  request.getSession(false);
 			if(null == session) {
 				result = "login";
 			}else {

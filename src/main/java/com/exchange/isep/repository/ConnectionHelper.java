@@ -1,4 +1,4 @@
-package com.exchange.isep.model;
+package com.exchange.isep.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

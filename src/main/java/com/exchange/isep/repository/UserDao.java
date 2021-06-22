@@ -1,9 +1,11 @@
-package com.exchange.isep.model;
+package com.exchange.isep.repository;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import com.exchange.isep.model.User;
 
 public class UserDao {
 	

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.exchange.isep.model.Mdjavahash;
 import com.exchange.isep.model.User;
 import com.exchange.isep.repository.UserRepository;
 
@@ -24,6 +25,9 @@ public class ForgotPasswordController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private Mdjavahash mdHash;
 
 	@GetMapping({"/forgotPassword"})
     public String forgotPassword(Model model) {
@@ -33,7 +37,7 @@ public class ForgotPasswordController {
 	
 	@GetMapping({"/forgotPassword_2"})
     public String forgotPassword_2(@RequestParam(value="email") String email,HttpServletRequest request,Model model) {
-		System.out.println("Email---------> "+email);
+	
 		request.setAttribute("email", email);
         return "forgotPassword_2";
         
@@ -51,16 +55,15 @@ public class ForgotPasswordController {
 				result = "login";
 			}else {
 				
-				//User user = (User)session.getAttribute("user");
-				
-					userRepository.updateUser(email, password);;
+					String encryptedPassword = mdHash.getHashPass(password);
+					userRepository.updateUser(email, encryptedPassword);
 					result =  "redirect:/login";
 				
 			}
 			
 			}catch(Exception e) { 
 			result = "error";
-			System.out.println("Error :"+e);
+			System.out.println("Error occured while updating the forgot password :"+e);
 			}
 			
 			return result;

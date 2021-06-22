@@ -76,11 +76,9 @@ public class UserRepository {
 		
 	}
 
-public void updateUser(String email, String password) {
-	System.out.println("email :"+email+ "-----   "+"password : "+password);
-	
-	
-	jdbcTemplate.update("UPDATE users SET password = ? WHERE email= ?",password, email );
-}
+	public void updateUser(String email, String password) {
+		
+		jdbcTemplate.update("UPDATE users SET password = ? WHERE email= ?",password, email );
+	}
 
 }

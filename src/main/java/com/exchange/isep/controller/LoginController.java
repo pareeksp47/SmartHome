@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.exchange.isep.model.Mdjavahash;
 import com.exchange.isep.model.User;
 import com.exchange.isep.repository.UserRepository;
 
@@ -27,6 +28,9 @@ public class LoginController {
 	
 	 @Autowired
 	    private UserRepository userRepository;
+	 
+	 @Autowired
+	 private Mdjavahash mdHash;
 
 	@GetMapping({"/login"})
     public String register(Model model) {
@@ -41,7 +45,7 @@ public class LoginController {
 		try {
 			String userName = request.getParameter("username");
 			String password = request.getParameter("password");
-		
+			String encryptedPassword = mdHash.getHashPass(password);
 			
 			User user = userRepository.authenticate(userName, password);
 			if(null != user) {

@@ -9,7 +9,7 @@
 <%
 	HttpSession reqSession = request.getSession(false);
 	User user = (User) reqSession.getAttribute("user");
-	ArrayList<User> userList = (ArrayList) reqSession.getAttribute("userList");
+	ArrayList<User> userList = (ArrayList) reqSession.getAttribute("users");
 
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
@@ -70,40 +70,9 @@
 			<a class="logout" href="/smarthome/logout">Logout</a>
 		</div>
 	</div>
-	<!-- 	<div class="side-nav-admin-taskbar"> -->
-	<!-- 		<div class="leftmenu"> -->
-	<!-- 			<a href="/smarthome/userDashboard" class="homeicon"> <img -->
-	<!-- 				class="icon" src="/smarthome/images/logo.png" /> <label -->
-	<!-- 				class="domisep">Smart Home </label> -->
-	<!-- 			</a> -->
-
-	<!-- 		</div> -->
-	<!-- 		<div class="profile_part"> -->
-	<!-- 			<img src="images\avatar_image.png" alt="Avatar" class="avatar"> -->
-	<!-- 			<h2 -->
-	<!-- 				style="color: #10A976; text-align: center; font-size: 16px; font-family: 'Arbutus Slab';"> -->
-	<%-- 				<% --%>
-	<!-- // 					out.print(user.getFirstName()); -->
-	<%-- 				%> --%>
-	<!-- 			</h2> -->
-	<!-- 		</div> -->
-	<!-- 		<a href="#">Dashboard</a> <a href="#">Profile</a> <a href="#">Support</a> -->
-	<!-- 		<a href="#">FAQ</a> -->
-	<!-- 	</div> -->
+	
 	<div class="content">
-		<!-- 		<!-- notification message -->
-		<!-- 			<div class="error success" > -->
-		<!-- 				<h3> -->
-		<!-- 					<?php  -->
-		<!-- 				</h3> -->
-		<!-- 			</div> -->
-
-		<!-- logged in user information -->
-		<!-- 		<div class="profile_info" style="margin: -20px;"></div> -->
-
-
-
-		<!--Search box for admin users-->
+		
 		<div style="display: flex; flex-wrap: wrap; margin-right: 0px;">
 			<input type="text" id="myInput" onkeyup="myFunction()"
 				placeholder="Search Name..." style="">
@@ -172,8 +141,7 @@
 				</td>
 				<td style="text-align: center;"><a href="/smarthome/deleteUser?id=<%=userList.get(i).getId()%>">
 						<img class="del-user" src="images\del_user_icon.png">
-				</a> <%-- 				<a href="delete.jsp?id=<%=userList.get(i).getId()%>" --%>
-					<!-- 					class="del_btn">Delete</a> --></td>
+				</a></td>
 			</tr>
 			<%
 				}

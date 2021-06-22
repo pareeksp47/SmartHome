@@ -4,5 +4,5 @@ import java.util.List;
 
 public class UserListDetails {
 
-	public List<User> userList;
+	public List<User> users;
 }
