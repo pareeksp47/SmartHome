@@ -11,7 +11,7 @@ import com.exchange.isep.repository.FAQRepository;
 /**
  * 
  * @author Neethu
- *
+ * This controller is responsible for getting the Frequently Asked Questions (FAQ) and their answers.
  */
 @Controller
 public class FAQController {

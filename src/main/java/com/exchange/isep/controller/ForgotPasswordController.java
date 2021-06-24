@@ -19,7 +19,9 @@ import com.exchange.isep.model.Mdjavahash;
 import com.exchange.isep.model.User;
 import com.exchange.isep.repository.UserRepository;
 
-
+/**
+ * This controller is responsible for managing the forgot password option of the login.
+ */
 @Controller
 public class ForgotPasswordController {
 	
