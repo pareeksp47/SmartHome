@@ -13,11 +13,10 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author SAURABH
- *
+ * This class is used for bootstrapping the application.
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-//@EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = {"com.exchange.isep.controller", "com.exchange.isep.repository"})
 public class Application  extends SpringBootServletInitializer{

@@ -47,19 +47,15 @@ public class AdminDashboardController {
 	@RequestMapping({ "/adminDashboard" })
 	public String adminDashboard(HttpServletRequest request) {
 
-		// final result formation
 		String result = "";
 		try {
 
-			// return the current session for this request
 			HttpSession session = request.getSession(false);
 			
-			// if session is null, means user needs to login
 			if(null == session) {
 				result = "login";
 				
 			}else {
-				// if session is present get user details from session
 				User user = (User) session.getAttribute("user");
 			
 				// validate user obj, if null return to login.

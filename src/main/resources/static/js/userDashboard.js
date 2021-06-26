@@ -1,7 +1,6 @@
 var count = 0;
 function getSensorStatus(id,tagId){
 	
-	//console.log("id==>"+$('#'+tagId).attr('checked'));
 	var status;
 	if( $('#'+tagId).attr('checked') == "checked"){
 		status = "0";

@@ -10,14 +10,6 @@ $('#submit').click(function(event) {
 
 });
 
-//$('#submit-admin').click(function(event) {
-//	var flag = validateFields();
-//	if (!flag) {
-//		event.preventDefault(event);
-//	}
-//
-//});
-
 function validateFields(event) {
 	if (!$('#fname').val()) {
 		setErrorMessage("Please enter first name");
@@ -75,13 +67,6 @@ function validateFields(event) {
 	}
 
 	return true;
-	/*if (($('#password').val() && $('#cpassword').val())
-			&& ($('#password').val() != ($('#cpassword').val()))) {
-		setErrorMessage("Passwords enterd do not match");
-		return false;
-	} else {
-		return true;
-	}*/
 
 }
 
