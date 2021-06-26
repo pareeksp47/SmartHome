@@ -26,7 +26,7 @@ import com.exchange.isep.repository.UserDashboardRepository;
 
 /**
  * @author MANJUSREE
- *
+ * This controller is responsible to get the dashboard of apartment-sensor information.
  */
 @Controller
 public class UserDashboardController {

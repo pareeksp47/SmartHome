@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author SAURABH
- *
+ * This controller is responsible for getting the user specific information.
  */
 @RestController
 public class UserController {

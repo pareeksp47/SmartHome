@@ -20,7 +20,7 @@ import com.exchange.isep.repository.UserRepository;
 
 /**
  * @author SAURABH
- *
+ * This controller is responsible for the user registration.
  */
 @Controller
 public class RegistrationController {

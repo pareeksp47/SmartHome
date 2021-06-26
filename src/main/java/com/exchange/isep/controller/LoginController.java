@@ -21,13 +21,14 @@ import com.exchange.isep.repository.UserRepository;
 
 /**
  * @author SAURABH
+ * This controller is responsible for managing the user login.
  *
  */
 @Controller
 public class LoginController {
 	
 	 @Autowired
-	    private UserRepository userRepository;
+	 private UserRepository userRepository;
 	 
 	 @Autowired
 	 private Mdjavahash mdHash;
