@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
- *  This controller is used to delegate funtionalities of contactus page.
+ *  This controller is used to delegate functionalities of contact us page.
  */
 @Controller
 public class ContactusController {

@@ -1,4 +1,3 @@
-
 package com.exchange.isep.helper;
 
 import java.util.Properties;
@@ -11,48 +10,65 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class JavaCheck {
 
-	Properties emailProperties;
-	Session mailSession;
-	MimeMessage emailMessage;
+  Properties emailProperties;
+  Session mailSession;
+  MimeMessage emailMessage;
 
-	String emailHost = "smtp.gmail.com";
-	String emailPort = "587";// gmail's smtp port
-	String fromUser = "maylin.pinto96@gmail.com";// your gmail id
-	String fromUserEmailPassword = "MAYLIN.pinto1996";
-	String[] toEmails = { "maylin.pinto96@gmail.com" };
+  // SMTP configuration
+  
+  @Value("${smtp.port}")
+  private String port;
 
-	public void setMailServerProperties() {
-		emailProperties = System.getProperties();
-		emailProperties.put("mail.smtp.port", emailPort);
-		emailProperties.put("mail.smtp.auth", "true");
-		emailProperties.put("mail.smtp.starttls.enable", "true");
-	}
+  @Value("${smtp.host}")
+  private String host;
 
-	public void createEmailMessage(String emailSubject, String emailBody)
-			throws AddressException, MessagingException {
-		mailSession = Session.getDefaultInstance(emailProperties, null);
-		emailMessage = new MimeMessage(mailSession);
-		for (int i = 0; i < toEmails.length; i++) {
-			emailMessage.addRecipient(Message.RecipientType.TO,
-					new InternetAddress(toEmails[i]));
-		}
-		emailMessage.setSubject(emailSubject);
-		emailMessage.setContent(emailBody, "text/html");// for a html email
-		// emailMessage.setText(emailBody);// for a text email
+  @Value("${smtp.user}")
+  private String smtpUser;
 
-	}
+  @Value("${smtp.password}")
+  private String smtpPassword;
 
-	public void sendEmail() throws AddressException, MessagingException {
-		try {
-			Transport transport = mailSession.getTransport("smtp");
-			transport.connect(emailHost, fromUser, fromUserEmailPassword);
-			transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
-			transport.close();
-		} catch(Exception e) {
-			System.out.println();
-		}
+  public void setMailServerProperties() {
+    emailProperties = System.getProperties();
+    emailProperties.put("mail.smtp.port", port);
+    emailProperties.put("mail.smtp.auth", "true");
+    emailProperties.put("mail.smtp.starttls.enable", "true");
+  }
 
-	}
-}
+  /**
+   * Create email message
+   * @param emailSubject
+   * @param emailBody
+   * @param userEmail
+   * @throws AddressException
+   * @throws MessagingException
+   */
+  public void createEmailMessage(String emailSubject, String emailBody, String userEmail)
+  throws AddressException, MessagingException {
+    mailSession = Session.getDefaultInstance(emailProperties, null);
+    emailMessage = new MimeMessage(mailSession);
+    emailMessage.addRecipient(Message.RecipientType.TO,
+      new InternetAddress(userEmail));
+
+      emailMessage.setSubject(emailSubject); emailMessage.setContent(emailBody, "text/html"); // for a html email
+
+    }
+
+   /**
+    * Send email to the customer
+    * @throws AddressException
+    * @throws MessagingException
+    */
+    public void sendEmail() throws AddressException, MessagingException {
+      
+        Transport transport = mailSession.getTransport("smtp");
+        transport.connect(host, smtpUser, smtpPassword);
+        transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
+        transport.close();
+
+    }
+  }

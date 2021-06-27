@@ -45,14 +45,9 @@ public class JavaEmail {
 	}
 
 	public void sendEmail() throws AddressException, MessagingException {
-		try {
 			Transport transport = mailSession.getTransport("smtp");
 			transport.connect(emailHost, fromUser, fromUserEmailPassword);
 			transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
 			transport.close();
-		} catch(Exception e) {
-			System.out.println();
-		}
-
 	}
 }
