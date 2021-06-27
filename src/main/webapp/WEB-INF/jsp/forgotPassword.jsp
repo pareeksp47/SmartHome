@@ -3,7 +3,7 @@
     <%@ page session="false" %>
   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ page import="com.exchange.isep.helper.JavaCheck"%>
+<%@ page import="com.exchange.isep.helper.JavaEmail"%>
 <%@page import="com.exchange.isep.model.User"%>
 <%@ page import="javax.mail.MessagingException"%>  
     
